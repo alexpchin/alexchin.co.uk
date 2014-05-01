@@ -18,7 +18,7 @@ use Rack::Rewrite do
 
   # Redirect any calls to the the canonical domain, unless they are to the canonical domain
   # This prevents accessing the app from the heroku url or your domain
-  r301 /.*/, 'http://www.alexchin.co.uk$&', if: proc { |rack_env| rack_env['SERVER_NAME'] != 'alexchin.co.uk' }
+  # r301 /.*/, 'http://www.alexchin.co.uk$&', if: proc { |rack_env| rack_env['SERVER_NAME'] != 'alexchin.co.uk' }
 end
 
 # Ensure the site is served from the correct location and the headers are appropriate
