@@ -1,30 +1,52 @@
-exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, gems]
+# Directory Settings
+source: ./src
+destination: ./build/deploy
+# plugins: ./src/_plugins
 
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+# Site Specific Settings
+# timezone: America/New_York
+# permalink: /:title
+# url: http://www.neverstopbuilding.com
+# default_page_image: https://lh5.googleusercontent.com/-N-zIzELpE4Q/Umngjlc4rLI/AAAAAAAAJCk/EnHYREZvgLI/w1117-h316-no/tattoo.png
+# default_home_image: https://lh5.googleusercontent.com/-75568V798uI/UhmjUBPD5uI/AAAAAAAAIWA/I-t9QxUhkdA/w1002-h668-no/2013-08-23-115546.jpg
+# title: Never Stop Building
+# description: "Learn about high quality software engineering, code craftsmanship, productivity, electronics and inventions. By Jason Fox, renaissance man and builder."
+# future: false
+# send_to_buffer: true
+# buffer_profiles:
+#     - 50fea0bd0a19002365000002
+#     - 527456636f9adad8670000a0
+#     - 527456d06f9ada0d6d00007c
+#     - 52dd1f2272c22fdc4800000f
 
-# Permalinks
-permalink:        pretty
+# Syndication Settings
+# feed: http://feeds.feedburner.com/neverstopbuilding/TGMp
 
-# Setup
-title:            Alex Chin
-tagline:          'Startups & coffee.'
-description:      'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://www.alexchin.co.uk
-paginate:         5
+#Builder Information
+author: Alex Chin
+email: alex@alexchin.co.uk
+twitter: //twitter.com/alexpchin
+twitter_username: alexpchin
+# youtube: //www.youtube.com/user/alexpchin
+github: //github.com/alexpchin
+# google_plus: //plus.google.com/109774408645971700391
+instagram: //instagram.com/alexpchin
+from: "Shoreditch, London, United Kingdom"
+author_facebook: https://www.facebook.com/alexpchin
 
-author:
-  name:           'Alex Chin'
-  url:            https://twitter.com/alexpchin
+# Plugin Settings
+markdown: redcarpet
+pygments: true
 
-# Custom vars
-version:          1.0.0
+asset_pipeline:
+  bundle: true
+  compress: true
+  output_path: assets
+  display_path: nil
+  gzip: true
 
-github:
-  repo:           https://github.com/alexpchin
+# sitemap:
+#   local: false
+#   repo: https://github.com/neverstopbuilding/blog.git
 
-assets:
-  js_compressor:  uglifier
-  css_compressor: sass
-  cache: true
+# category_dir: category

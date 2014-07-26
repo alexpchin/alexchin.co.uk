@@ -1,0 +1,26 @@
+doctype html
+| <!--[if IE 8]>
+| <html class="no-js lt-ie9" lang="en" >
+| <![endif]-->
+| <!--[if gt IE 8]><!-->
+| <html class="no-js" lang="en" >
+| <!--<![endif]-->
+
+html
+  head
+    title
+      | {{ page.title }}
+    | { % css_asset_tag global_css %}
+      - /_assets/css/app.scss
+    | { % endcss_asset_tag %}
+  body
+    .site
+      .header
+        h1.title
+          a href="/"
+          | {{ site.name }}
+        a.extra href="/" home
+      | {{ content }}
+      .footer
+        .contact
+          p Your Name
