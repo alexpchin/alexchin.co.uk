@@ -13,8 +13,8 @@ Bundler.require(:default)
 
 Set up redirects
 use Rack::Rewrite do
-  # # There should only be one canonical permalink, and it should not end with index.html
-  # r301 /(.*)\/index\.html$/i, 'http://canonical-domain.com$1'
+  # There should only be one canonical permalink, and it should not end with index.html
+  r301 /(.*)\/index\.html$/i, 'http://alexchin.herokuapp.com$1'
 
   # # Redirect any calls to the the canonical domain, unless they are to the canonical domain
   # # This prevents accessing the app from the heroku url or your domain
