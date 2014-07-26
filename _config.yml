@@ -1,6 +1,6 @@
 # Directory Settings
 source: ./src
-destination: ./build/deploy
+destination: ./build
 plugins: ./src/_plugins
 
 # Site Specific Settings
