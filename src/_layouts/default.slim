@@ -10,9 +10,10 @@ html
   head
     title
       | {{ page.title }}
-    | { % css_asset_tag global_css %}
+
+    | {% css_asset_tag global_css %}
       - /_assets/css/app.scss
-    | { % endcss_asset_tag %}
+    | {% endcss_asset_tag %}
   body
     .site
       .header
