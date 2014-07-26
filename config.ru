@@ -11,7 +11,7 @@ use Rack::Deflater
 
 Bundler.require(:default) 
 
-Set up redirects
+# Set up redirects
 use Rack::Rewrite do
   # There should only be one canonical permalink, and it should not end with index.html
   r301 /(.*)\/index\.html$/i, 'http://alexchin.co.uk$1'
