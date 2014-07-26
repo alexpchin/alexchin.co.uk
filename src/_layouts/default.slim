@@ -15,13 +15,18 @@ html
       - /_assets/css/app.scss
     | {% endcss_asset_tag %}
   body
-    .site
-      .header
-        h1.title
-          a href="/"
-          | {{ site.name }}
-        a.extra href="/" home
+    .header
+      .row
+        .large-12.columns.text-center
+          h1.title
+            a href="/"
+              | {{ site.name }}
+          a.button.small href="/" Home
+    .row
+      .large-12.columns
       | {{ content }}
-      .footer
-        .contact
-          p Your Name
+    .footer
+      .row
+        .large-12.columns.text-center
+          .contact
+            p Your Name

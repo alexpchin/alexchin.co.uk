@@ -1,3 +1,5 @@
+require 'compass'
+require 'zurb-foundation'
 require 'jekyll_asset_pipeline'
 
 module JekyllAssetPipeline
