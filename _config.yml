@@ -1,7 +1,7 @@
 # Directory Settings
 source: ./src
 destination: ./build/deploy
-# plugins: ./src/_plugins
+plugins: ./src/_plugins
 
 # Site Specific Settings
 # timezone: America/New_York

@@ -2,15 +2,18 @@ source 'http://rubygems.org'
 ruby '2.1.1'
 
 # Here are some notes about my gem decisions...
-# Duh.
-gem 'jekyll'
+# Duh. (Although, important to use version for jekyll-slim)
+gem 'jekyll', '~> 1.3.0'
 
 # Slim-ugly is faster than haml...
 # http://sephinrothcn.wordpress.com/2014/04/14/slim-vs-haml-performance-perspective/
 # Although, working with Rails you may be more familiar with Haml
 # So uncomment the one you like to use...
-gem 'jekyll-slim'
+gem 'jekyll-slim', '~> 0.8.2'
 # gem 'jekyll-haml'
+
+# HTMLEntities is a simple library to facilitate encoding
+gem 'htmlentities'
 
 # Let's speed things up with an asset pipeline.
 gem 'jekyll-asset-pipeline'
