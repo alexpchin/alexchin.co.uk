@@ -11,15 +11,15 @@ use Rack::Deflater
 
 Bundler.require(:default) 
 
-# Set up redirects
-# use Rack::Rewrite do
-#   # There should only be one canonical permalink, and it should not end with index.html
-#   r301 /(.*)\/index\.html$/i, 'http://canonical-domain.com$1'
+Set up redirects
+use Rack::Rewrite do
+  # # There should only be one canonical permalink, and it should not end with index.html
+  # r301 /(.*)\/index\.html$/i, 'http://canonical-domain.com$1'
 
-#   # Redirect any calls to the the canonical domain, unless they are to the canonical domain
-#   # This prevents accessing the app from the heroku url or your domain
-#   r301 /.*/, 'http://canonical-domain.com$&', if: proc { |rack_env| rack_env['SERVER_NAME'] != 'canonical-domain.com' }
-# end
+  # # Redirect any calls to the the canonical domain, unless they are to the canonical domain
+  # # This prevents accessing the app from the heroku url or your domain
+  # r301 /.*/, 'http://canonical-domain.com$&', if: proc { |rack_env| rack_env['SERVER_NAME'] != 'canonical-domain.com' }
+end
 
 # Ensure the site is served from the correct location and the headers are appropriate
 use Rack::TryStatic,
