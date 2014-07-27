@@ -6,23 +6,33 @@
 @import "../components/foundation/scss/foundation";
 
 body {
-  font-family: sans-serif;
-  background: #E45635;
-  color: #FFF;
-
   h1, h2, h3, h4, h5, h6 {
     color:  #FFF;
     font-weight: bold;
+    font-weight: 800;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+
+  h2 {
+    font-size: 50px;
   }
 
   a {
     color:  #FFF;
     text-decoration: underline;
+
+    &:hover {
+      color: #FFF;
+    }
   }
 }
 
 .header {
-  background-color: #333;
+  background-color: #E45635;
+  margin: 0 0 20px;
 }
 
 .footer {
