@@ -33,7 +33,18 @@ body {
 .header {
   background-color: #E45635;
   margin: 0 0 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .top-bar .name h1 a {
+    padding: 0;
+  }
 }
 
 .footer {
+  margin-top: 40px;
+  padding: 40px 0 0 0;
+  border-top: 1px solid #FFF;
 }
