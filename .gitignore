@@ -1,2 +1,7 @@
 build
 .sass-cache
+TODO.md
+Notes.md
+.DS_Store
+.bundle
+_staging.yml

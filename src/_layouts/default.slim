@@ -16,15 +16,36 @@ html
     | {% endcss_asset_tag %}
   body
     .header
-      .row
-        .large-12.columns.text-center
-          h1.title
-            a href="/"
-              | {{ site.name }}
-          a.button.small href="/" Home
+      nav.top-bar data-topbar=""
+        .row
+          .large-12.columns
+            ul.title-area
+              li.name
+                h1
+                  a href="#"  My Site
+              /! Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+              li.toggle-topbar.menu-icon
+                a href="#" 
+                  span Menu
+            section.top-bar-section
+              /! Right Nav Section
+              ul.right
+                li.active
+                  a href="#"  Right Button Active
+                li.has-dropdown
+                  a href="#"  Right Button Dropdown
+                  ul.dropdown
+                    li
+                      a href="#"  First link in dropdown
+              /! Left Nav Section
+              ul.left
+                li
+                  a href="#"  Left Nav Button
+
     .row
       .large-12.columns
       | {{ content }}
+
     .footer
       .row
         .large-12.columns.text-center

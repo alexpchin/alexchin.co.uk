@@ -1,4 +1,6 @@
-@import "foundation";
+@import "../components/foundation/scss/foundation/settings";
+@import "../components/foundation/scss/normalize";
+@import "../components/foundation/scss/foundation";
 
 body {
     font-family: sans-serif;

@@ -1,0 +1,19 @@
+{
+  "name": "alexpchin.github.io",
+  "version": "0.0.0",
+  "homepage": "alexchin.co.uk",
+  "authors": [
+    "alex@alexchin.co.uk"
+  ],
+  "description": "Portfolio Site for Alex Chin",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/_assets/components",
+    "test",
+    "tests"
+  ]
+}

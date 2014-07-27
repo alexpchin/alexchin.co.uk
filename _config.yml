@@ -36,7 +36,7 @@ author_facebook: https://www.facebook.com/alexpchin
 
 # Plugin Settings
 markdown: redcarpet
-pygments: true
+highlighter: true
 
 asset_pipeline:
   bundle: true
