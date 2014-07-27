@@ -1,13 +1,29 @@
-@import "../components/foundation/scss/foundation/settings";
+// I copied this version so that I could keep it clean
+// @import "../components/foundation/scss/foundation/settings";
+
+@import "settings";
 @import "../components/foundation/scss/normalize";
 @import "../components/foundation/scss/foundation";
 
 body {
-    font-family: sans-serif;
+  font-family: sans-serif;
+  background: #E45635;
+  color: #FFF;
+
+  h1, h2, h3, h4, h5, h6 {
+    color:  #FFF;
+    font-weight: bold;
+  }
+
+  a {
+    color:  #FFF;
+    text-decoration: underline;
+  }
 }
-.header, .footer {
-    background-color: #eeeeee;
-    p {
-        font-weight: 100;
-    }
+
+.header {
+  background-color: #333;
+}
+
+.footer {
 }

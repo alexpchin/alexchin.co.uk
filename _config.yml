@@ -27,12 +27,12 @@ author: Alex Chin
 email: alex@alexchin.co.uk
 twitter: //twitter.com/alexpchin
 twitter_username: alexpchin
-# youtube: //www.youtube.com/user/alexpchin
 github: //github.com/alexpchin
-# google_plus: //plus.google.com/109774408645971700391
 instagram: //instagram.com/alexpchin
 from: "Shoreditch, London, United Kingdom"
 author_facebook: https://www.facebook.com/alexpchin
+# google_plus: //plus.google.com/109774408645971700391
+# youtube: //www.youtube.com/user/alexpchin
 
 # Plugin Settings
 markdown: redcarpet
@@ -47,6 +47,6 @@ asset_pipeline:
 
 # sitemap:
 #   local: false
-#   repo: https://github.com/neverstopbuilding/blog.git
+#   repo: https://github.com/alexpchin/alexchin.github.io.git
 
 # category_dir: category

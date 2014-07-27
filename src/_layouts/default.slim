@@ -14,6 +14,19 @@ html
     | {% css_asset_tag global_css %}
       - /_assets/css/app.scss
     | {% endcss_asset_tag %}
+
+    | {% javascript_asset_tag head_js %}
+      - /_assets/components/jquery/dist/jquery.min.js
+      - /_assets/components/fastclick/lib/fastclick.js
+      - /_assets/components/foundation/js/foundation.min.js
+      - /_assets/components/modernizr/modernizr.js
+      - /_assets/js/app.js
+    | {% endjavascript_asset_tag %}
+
+    meta name="author" content="{{ author }}"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="HandheldFriendly" content="True"
+    meta name="MobileOptimized" content="320"
   body
     .header
       .row
@@ -37,17 +50,12 @@ html
                   ul.dropdown
                     li
                       a href="#"  First link in dropdown
-              /! Left Nav Section
-              ul.left
-                li
-                  a href="#"  Left Nav Button
 
     .row
       .large-12.columns
-      | {{ content }}
+        | {{ content }}
 
     .footer
       .row
-        .large-12.columns.text-center
-          .contact
-            p Your Name
+        .large-12.columns
+        
