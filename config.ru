@@ -35,7 +35,7 @@ use Rack::TryStatic,
     [['png'],   { 'Content-Type' => 'image/png' }],
     [['ico'],   { 'Content-Type' => 'image/x-icon' }],
     ['/assets', { 'Cache-Control' => 'public, max-age=31536000' }],
-    [:all, { 'Cache-Control' => 'public, max-age=31536000' }], # Might be duplication
+    ['/', { 'Cache-Control' => 'public, max-age=31536000' }], # Might be duplication
   ]
 
 # 404s should be sent to that simple page we created above

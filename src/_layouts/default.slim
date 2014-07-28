@@ -21,7 +21,6 @@ html
     meta name="MobileOptimized" content="320"
     meta http-equiv="Content-Type" content="text/html; charset=utf-8"
 
-
     meta property="og:image" content="{{og_image}}"
     meta property="og:url" content="{{canonical}}"
     meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
@@ -114,5 +113,5 @@ html
       - /_assets/components/fastclick/lib/fastclick.js
       - /_assets/components/foundation/js/foundation.js
       - /_assets/components/foundation/js/foundation/foundation.dropdown.js
-      - /_assets/js/tail.js
+      - /_assets/js/tail.js.coffee
     | {% endjavascript_asset_tag %}

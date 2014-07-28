@@ -27,6 +27,9 @@ gem 'zurb-foundation'
 # The YUI Compressor is JavaScript minifier designed to be 100% safe.
 gem 'yui-compressor'
 
+# Coffeescript
+gem 'coffee-script'
+
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server 
 # for Ruby/Rack applications.
 gem 'puma'
