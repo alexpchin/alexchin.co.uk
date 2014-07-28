@@ -9,7 +9,7 @@ doctype html
 html
   head
     title
-      | {{ page.title }}
+      | {% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}
 
     | {% css_asset_tag global_css %}
       - /_assets/css/app.scss
@@ -21,17 +21,26 @@ html
     meta name="MobileOptimized" content="320"
     meta http-equiv="Content-Type" content="text/html; charset=utf-8"
 
-    link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,800,400" rel="stylesheet" type="text/css" /
-    link href="favicon.ico" rel="icon" type="image/x-icon" /
-    link href="favicon.ico" rel=("shortcut icon") type="image/x-icon" /
-    link href="favicon.png" rel=("shortcut icon") type="image/png" /
-    link href="C:/files/favicon.ico" rel=("shortcut icon") type="image/x-icon" /
-    link href="file:///C:/files/favicon.ico" rel=("shortcut icon") type="image/x-icon" /
-    link href="file:///C|/files/favicon.ico" rel=("shortcut icon") type="image/x-icon" /
-    link href="file://localhost/C:/favicon.ico" rel=("shortcut icon") type="image/x-icon" /
-    link href="file://127.0.0.1/C:/favicon.ico" rel=("shortcut icon") type="image/x-icon" /
-    link href="file://localhost/C|/favicon.ico" rel=("shortcut icon") type="image/x-icon" /
 
+    meta property="og:image" content="{{og_image}}"
+    meta property="og:url" content="{{canonical}}"
+    meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+    meta property="og:site_name" content="{{site.title}}"
+    meta property="og:type" content="{% if page.og_type %}{{page.og_type}}{% else %}blog{% endif %}"
+
+    link rel="author" href="{{ site.url}}/humans.txt"
+    
+    link href="favicon.ico" rel="icon" type="image/x-icon"
+    link href="favicon.ico" rel=("shortcut icon") type="image/x-icon"
+    link href="favicon.png" rel=("shortcut icon") type="image/png"
+    link href="C:/files/favicon.ico" rel=("shortcut icon") type="image/x-icon"
+    link href="file:///C:/files/favicon.ico" rel=("shortcut icon") type="image/x-icon"
+    link href="file:///C|/files/favicon.ico" rel=("shortcut icon") type="image/x-icon"
+    link href="file://localhost/C:/favicon.ico" rel=("shortcut icon") type="image/x-icon"
+    link href="file://127.0.0.1/C:/favicon.ico" rel=("shortcut icon") type="image/x-icon"
+    link href="file://localhost/C|/favicon.ico" rel=("shortcut icon") type="image/x-icon"
+
+    link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,800,400" rel="stylesheet" type="text/css"
 
     javascript:
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
