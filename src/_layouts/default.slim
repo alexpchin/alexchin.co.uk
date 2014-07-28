@@ -15,14 +15,6 @@ html
       - /_assets/css/app.scss
     | {% endcss_asset_tag %}
 
-    | {% javascript_asset_tag head_js %}
-      - /_assets/components/jquery/dist/jquery.min.js
-      - /_assets/components/fastclick/lib/fastclick.js
-      - /_assets/components/foundation/js/foundation.min.js
-      - /_assets/components/modernizr/modernizr.js
-      - /_assets/js/app.js
-    | {% endjavascript_asset_tag %}
-
     link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,800,400" rel="stylesheet" type="text/css" /
 
     meta name="author" content="{{ author }}"
@@ -40,6 +32,7 @@ html
       ga('send', 'pageview');
 
 
+
   body
     .header
       .row
@@ -54,17 +47,22 @@ html
               li.toggle-topbar.menu-icon
                 a href="#" 
                   span Menu
+            
             section.top-bar-section
               /! Right Nav Section
               ul.right
                 li
-                  a href="#"  About
+                  a href="/about"  About
                 li
-                  a href="#"  Past projects
+                  a href="/skills"  Skills
                 li
-                  a href="#"  The making of this site
+                  a href="/friends"  Friends
                 li
-                  a href="#"  Blog
+                  a href="/projects"  Projects
+                li
+                  a href="/the-making-of-this-site"  The making of this site
+                li
+                  a href="/"  Blog
 
     .row
       .large-12.columns
@@ -75,3 +73,12 @@ html
         .large-12.columns
           ul.no-bullet
             li &copy; Alex Chin 2014.
+
+    | {% javascript_asset_tag head_js %}
+      - /_assets/components/modernizr/modernizr.js
+      - /_assets/components/jquery/dist/jquery.js
+      - /_assets/components/fastclick/lib/fastclick.js
+      - /_assets/components/foundation/js/foundation.js
+      - /_assets/components/foundation/js/foundation/foundation.dropdown.js
+      - /_assets/js/tail.js
+    | {% endjavascript_asset_tag %}

@@ -12,7 +12,7 @@ module JekyllAssetPipeline
     Compass.configuration.sass_dir = 'src/_assets/css'
 
     # Incorporate with asset pipeline
-    # Sass.load_paths << File.expand_path(File.join(File.dirname(__FILE__), '..', '_assets', 'components', 'foundation', 'scss'))
+    Sass.load_paths << File.expand_path(File.join(File.dirname(__FILE__), '..', '_assets', 'components', 'foundation', 'scss'))
 
     # If they were in CSS folder.
     # Sass.load_paths << File.expand_path(File.join(File.dirname(__FILE__), '..', '_assets', 'css', 'font-awesome'))
