@@ -33,6 +33,7 @@ use Rack::TryStatic,
     [['css'],   { 'Content-Type' => 'text/css' }],
     [['js'],    { 'Content-Type' => 'text/javascript' }],
     [['png'],   { 'Content-Type' => 'image/png' }],
+    [['ico'],   { 'Content-Type' => 'image/x-icon' }],
     ['/assets', { 'Cache-Control' => 'public, max-age=31536000' }],
     [:all, { 'Cache-Control' => 'public, max-age=31536000' }], # Might be duplication
   ]
