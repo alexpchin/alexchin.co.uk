@@ -10,6 +10,7 @@ body {
     color:  #FFF;
     font-weight: bold;
     font-weight: 800;
+    text-shadow: 2px 3px 0 #b13518,7px 4px 0 rgba(0,0,0,0.15)
   }
 
   h1 {
@@ -32,6 +33,7 @@ body {
   blockquote {
     background: #fff;
     padding: 20px;
+    box-shadow: 8px 8px 0px #b13518;
 
     p {
       margin: 0;

@@ -54,39 +54,39 @@ body
           section.top-bar-section
             /! Right Nav Section
             ul.right
-              li
-                a href="#" 
+              li.show-for-large-only
+                a href="https://github.com/alexpchin" 
                   i.fa.fa-github
 
-              li 
-                a href="#" 
+              li.show-for-large-only
+                a href="https://www.facebook.com/alexpchin" 
                   i.fa.fa-facebook-square
 
-              li 
-                a href="#" 
+              li.show-for-large-only
+                a href="https://twitter.com/alexpchin" 
                   i.fa.fa-twitter
 
-              li 
-                a href="#" 
+              li.show-for-large-only
+                a href="https://vimeo.com/alexpchin" 
                   i.fa.fa-vimeo-square
 
               li.has-dropdown
                 a href="/about"  About
                 ul.dropdown
                   li
-                    a href="/skills"  Skills
+                    a href="/projects" Projects
                   li
-                    a href="/startup-tips"  Startup Tips
+                    a href="/skills" Skills
                   li
-                    a href="/mentoring"  Mentoring
+                    a href="/recommendations" Recommendations
                   li
-                    a href="/friends"  Friends
+                    a href="/startup-tips" Startup Tips
                   li
-                    a href="/projects"  Projects
+                    a href="/mentoring" Mentoring
                   li
-                    a href="/recommendations"  Recommendations
+                    a href="/friends" Friends
                   li
-                    a href="/the-making-of-this-site"  The making of this site
+                    a href="/the-making-of-this-site" The making of this site
 
               li
                 a href="/"  Archive
@@ -110,12 +110,13 @@ body
             a href="http://aws.amazon.com/" AWS
             |  and more...
 
-  | {% javascript_asset_tag head_js %}
+  | {% javascript_asset_tag tail_js %}
     - /_assets/components/modernizr/modernizr.js
     - /_assets/components/jquery/dist/jquery.min.js
     - /_assets/components/fastclick/lib/fastclick.js
     - /_assets/components/foundation/js/foundation.js
     - /_assets/components/foundation/js/foundation/foundation.dropdown.js
+    - /_assets/components/foundation/js/foundation/foundation.interchange.js
     - /_assets/js/tail.js.coffee
   | {% endjavascript_asset_tag %}
 
