@@ -28,6 +28,20 @@ body {
       color: #FFF;
     }
   }
+
+  blockquote {
+    background: #fff;
+    padding: 20px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // ---------- Projects ---------- //
+  img.project {
+    border: 4px solid #fff;
+  }
 }
 
 .header {
