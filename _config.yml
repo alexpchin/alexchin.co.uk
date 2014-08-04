@@ -7,17 +7,14 @@ plugins: ./src/_plugins
 # timezone: America/New_York
 permalink: /:title
 url: http://www.alexchin.co.uk
-# default_page_image: https://lh5.googleusercontent.com/-N-zIzELpE4Q/Umngjlc4rLI/AAAAAAAAJCk/EnHYREZvgLI/w1117-h316-no/tattoo.png
-# default_home_image: https://lh5.googleusercontent.com/-75568V798uI/UhmjUBPD5uI/AAAAAAAAIWA/I-t9QxUhkdA/w1002-h668-no/2013-08-23-115546.jpg
+default_page_image: /images/alex.png
+default_home_image: /images/alex.png
 title: Alex Chin's little space on the web.
 description: "Coffee & code. Start-up tips and coding tricks by Alex Chin."
-# future: false
-# send_to_buffer: true
-# buffer_profiles:
-#     - 50fea0bd0a19002365000002
-#     - 527456636f9adad8670000a0
-#     - 527456d06f9ada0d6d00007c
-#     - 52dd1f2272c22fdc4800000f
+future: false
+send_to_buffer: true
+buffer_profiles:
+    - 53df98d2a3f420da7f65c445
 
 # Syndication Settings
 # feed: http://feeds.feedburner.com/neverstopbuilding/TGMp

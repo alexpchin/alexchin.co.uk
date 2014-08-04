@@ -39,6 +39,9 @@ gem 'rake'
 gem 'rack-contrib'
 gem 'rack-rewrite'
 
+# Automatic posting using Buffer
+gem 'buff'
+
 group :development  do
   # A Guard plugin for smarter Jekyll builds
   gem 'guard-jekyll-plus', git: 'https://github.com/imathis/guard-jekyll-plus', branch: 'master'
