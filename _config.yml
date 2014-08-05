@@ -7,8 +7,8 @@ plugins: ./src/_plugins
 timezone: United_Kingdom/London
 permalink: /:title
 url: http://www.alexchin.co.uk
-default_page_image: /images/alex.png
-default_home_image: /images/alex.png
+default_page_image: http://www.alexchin.co.uk/images/alex.png
+default_home_image: http://www.alexchin.co.uk/images/alex.png
 title: Alex Chin's little space on the web.
 description: "Coffee & code. Start-up tips and coding tricks by Alex Chin."
 future: false
