@@ -20,11 +20,12 @@ Instead of writing complicated SQL statements with things like left-joins, inner
 
 DSL allows us to **manipulate Ruby objects** rather having to SELECT by table and column. This is because a table is just a representation of the information stored about an object. 
 
-
 ##Generating a new migration
 
-  rails generate migration MigrationName
-  
+{% highlight ruby linenos %}
+  $ rails generate migration MigrationName
+{% endhighlight %}
+
 **You can call a migration anything you want!** However, it is generally good practise to describe what you are changing in the database so that other people can easily tell what it does.
 
 The format of a migration name is usually:
@@ -40,7 +41,6 @@ Running this will create a blank migration file which will be timestamped, it wi
 
 And will be in the db > migrate folder.
 
-  
 ##When does a migration auto-populate?
 This is something that I found confusing when I was first learning about migrations. This only happens when:
 
@@ -48,7 +48,9 @@ This is something that I found confusing when I was first learning about migrati
 
 For example: 
 
-  rails generate migration AddPartNumberToProducts part_number:string
+{% highlight ruby linenos %}
+  $ rails generate migration AddPartNumberToProducts part_number:string
+{% endhighlight %}
 
 A migration containing the appropriate add_column and remove_column statements will automatically be created.
 
@@ -57,8 +59,10 @@ All other times, a **blank migration** will be created.
 ##Executing a migration
 Once you have a migration file that has been created. You need to run:
 
-  rake db:migrate
-  
+{% highlight ruby linenos %}
+  $ rake db:migrate
+{% endhighlight %}
+
 This will execute the migration files. It will execute them **in the order of the earliest timestamp first**, so the oldest one first. 
 
 ##Editing a migration file
@@ -70,13 +74,16 @@ Within a migration file you need to include:
 
 Sometimes these instructions can be in the form of one **change** method:
 
+{% highlight ruby linenos %}
   class AddPartNumberToProducts < ActiveRecord::Migration
       def change
       end
   end
+{% endhighlight %}
   
 And sometimes these instructions can be in the form of an **up** method AND a **down** method:
 
+{% highlight ruby linenos %}
   class ExampleMigration < ActiveRecord::Migration
       def up
       end
@@ -84,6 +91,7 @@ And sometimes these instructions can be in the form of an **up** method AND a **
       def down
       end
   end
+{% endhighlight %}
 
 ##Change vs up/down?
 What is the difference?

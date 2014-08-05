@@ -4,7 +4,7 @@ destination: ./build
 plugins: ./src/_plugins
 
 # Site Specific Settings
-# timezone: America/New_York
+timezone: United_Kingdom/London
 permalink: /:title
 url: http://www.alexchin.co.uk
 default_page_image: /images/alex.png

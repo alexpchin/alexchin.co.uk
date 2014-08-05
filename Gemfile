@@ -42,6 +42,8 @@ gem 'rack-rewrite'
 # Automatic posting using Buffer
 gem 'buff'
 
+# Syntax highlighting
+
 group :development  do
   # A Guard plugin for smarter Jekyll builds
   gem 'guard-jekyll-plus', git: 'https://github.com/imathis/guard-jekyll-plus', branch: 'master'
@@ -51,5 +53,4 @@ group :development  do
 
   # Guard::LiveReload automatically reload your browser when 'view' files are modified.
   gem 'guard-livereload'
-
 end

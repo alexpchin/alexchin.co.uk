@@ -2,6 +2,8 @@
 layout: post
 title:  "Rails Content Management Systems"
 date:   2014-06-1 12:07:17
+category: Code
+tags:  [Rails, CMS]
 ---
 
 When developing websites for small to medium clients, often a decent CMS is needed to get basic CRUD functionality and authentication off the ground quickly.
@@ -15,11 +17,13 @@ I've done a little bit of research into some of the most popular CMS platforms. 
 
 One of the easier CMS's to setup. Presuming you have Ruby & Rails 3.2.13 already installed:
 
+{% highlight ruby linenos %}
   $ gem install browsercms
   $ bcms demo project_name
   $ cd project_name
   $ rake db:install
   $ rails server
+{% endhighlight %}
 
 Then in order to access the admin panel, you need to go to: [http://localhost:3000/cms](http://) and login using username=cmsadmin, password=cmsadmin.
 
@@ -36,30 +40,34 @@ The documentation is quite good on Github.
 
 Adva is currently being upgraded to version 2:
 
+{% highlight ruby linenos %}
   $ git clone git://github.com/svenfuchs/adva-cms2
   $ cd adva-cms2
   $ bundle install
+{% endhighlight %}
 
 Then,
 
+{% highlight ruby linenos %}
   $ thor adva:app my_new_app --target /home/user/path/to/apps
   $ cd /home/user/path/to/apps/my_new_app
   $ bundle install
   $ rails s
+{% endhighlight %}
 
 I faced a small error (You have already activated thor 0.19.1, but your Gemfile requires thor 0.14.6.) that meant I had to:
 
+{% highlight ruby linenos %}
   $ bundle exec thor adva:app my_new_app --target /home/user/path/to/apps
+{% endhighlight %}
 
 ###Initial thoughts
 
 The installation was **annoying**. It should have been much simpler.
 
-
 ### Adva uses Thor
 
 Adva CMS uses Thor: [http://whatisthor.com/](http://). Thor is a toolkit for building powerful command-line interfaces.
-
 
 ## 3. Casein CMS
 * Website: [http://www.caseincms.com/](http://)
@@ -75,19 +83,25 @@ He told me to play with the latest version.
 
 **To install:**
 
+{% highlight ruby linenos %}
   rails new casein-test
+{% endhighlight %}
 
 Add Gem to Gemfile:
 
+{% highlight ruby linenos %}
   gem 'casein', :git => 'git://github.com/russellquinn/casein.git', :branch => 'new-ui'
+{% endhighlight %}
 
 Then:
 
+{% highlight ruby linenos %}
   bundle install
   rails g casein:install
   rake db:create (if needed)
   rake db:migrate
   rake casein:users:create_admin email=you@yourdomain.com
+{% endhighlight %}
 
 ###Initial thoughts
 
@@ -101,15 +115,19 @@ Instantly, I liked this CMS because it seemed to have decent gems that integrate
 
 To install: 
 
+{% highlight ruby linenos %}
   gem 'comfortable_mexican_sofa', '~> 1.8.0'
   bundle install
   rails generate comfy:cms
   rake db:migrate
+{% endhighlight %}
 
 Once installed, you need to 
 
+{% highlight ruby linenos %}
   rails s
-  
+{% endhighlight %}
+
 Then go to: [http://localhost:3000/cms-admin](http://)
 With username:username & password:password
 

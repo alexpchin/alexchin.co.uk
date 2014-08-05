@@ -10,47 +10,66 @@ head
   title
     | {% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}
 
-  | {% css_asset_tag global_css %}
-    - /_assets/css/app.scss
-  | {% endcss_asset_tag %}
+  / Save keywords variable
+  | {% capture keywords %}{{page.categories | join: ', '}}, {{page.tags | join: ', '}}{% endcapture %}
 
+  / Save canonical variable
+  | {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'/index.html' }}{% endif %}{% endcapture %}
+
+  / Save og_image
+  | {% capture og_image %}
+  | {% if page.image %}{{ page.image }}{% else %}{{ site.default_page_image }}{% endif %}
+  | {% endcapture %}
+
+  / Save author
+  | {% capture author %}
+  | {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}
+  | {% endcapture %}
+
+  | {% if page.og_type == "article" %}
+  meta property="article:author" content="{% if page.author_facebook %}{{ page.author_facebook }}{% else %}{{ site.author_facebook }}{% endif %}"
+  | {% if page.category %}
+  meta property="article:section" content="{{page.category}}"
+  | {% endif %}
+  | {% if keywords %}
+  meta property="article:tag" content="{{ keywords | clean_keywords }}"
+  | {% endif %}
+  | {% endif %}
+  
   meta name="author" content="{{ author }}"
   meta name="viewport" content="width=device-width, initial-scale=1"
   meta name="HandheldFriendly" content="True"
   meta name="MobileOptimized" content="320"
   meta http-equiv="Content-Type" content="text/html; charset=utf-8"
 
-  meta property="og:image" content="{{og_image}}"
-  meta property="og:url" content="{{canonical}}"
+  meta property="og:image" content="{{ og_image }}"
+  meta property="og:url" content="{{ canonical }}"
   meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
-  meta property="og:site_name" content="{{site.title}}"
+  meta property="og:site_name" content="{{ site.title }}"
   meta property="og:type" content="{% if page.og_type %}{{page.og_type}}{% else %}blog{% endif %}"
 
-  link rel="author" href="{{ site.url}}/humans.txt"
+  | {% if page.index == true %}
+    link rel="alternate" href="{{ site.feed }}" title="{{ site.title }}" type="application/atom+xml"
+  | {% endif %}
+
+  | {% if page.has_feed == true %}
+    link rel="alternate" href="{{ canonical }}/atom.xml" title="{{page.title}}" type="application/atom+xml"
+  | {% endif %}
+
+  link rel="canonical" href="{{ canonical }}"
+
+  | {% css_asset_tag global_css %}
+    - /_assets/css/app.scss
+    - /_assets/css/syntax.css
+  | {% endcss_asset_tag %}
+
+  link rel="author" href="{{ site.url }}/humans.txt"
   
   link href="favicon.ico" rel="icon" type="image/x-icon"
   link href="favicon.ico" rel=("shortcut icon") type="image/x-icon"
 
   link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,800,400" rel="stylesheet" type="text/css"
   link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
-
-  | {% capture keywords %}{{page.categories | join: ', '}}, {{page.tags | join: ', '}}{% endcapture %}
-
-  | {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'/index.html' }}{% endif %}{% endcapture %}
-
-  | {% capture og_image %}
-  | {% if page.image %}{{ page.image }}{% else %}{{ site.default_page_image }}{% endif %}
-  | {% endcapture %}
-
-  | {% capture author %}
-  | {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}
-  | {% endcapture %}
-
-  meta property="og:image" content="{{og_image}}"
-  meta property="og:url" content="{{canonical}}"
-  meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
-  meta property="og:site_name" content="{{site.title}}"
-  meta property="og:type" content="{% if page.og_type %}{{page.og_type}}{% else %}blog{% endif %}"
 
 body
   .header
