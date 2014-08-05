@@ -12,11 +12,13 @@ head
 
   / Save description variable
   | {% if page.index %}
-    | {% capture description %}{{ site.description }}{% endcapture %}
+  | {% capture description %}{{ site.description }}{% endcapture %}
   | {% else %}
-    | {% capture description %}
+
+  | {% capture description %}
   | {% if page.description %}{{ page.description | strip_breaks | condense_spaces | quote_transform |truncate:150 }}
-  | {% else %}{{ page.content | markdownify | strip_html | strip_breaks | decode | condense_spaces | quote_transform | truncate:150 }}
+  | {% else %}
+  | {{ page.title }}
   | {% endif %}
   | {% endcapture %}
   | {% endif %}
@@ -51,9 +53,11 @@ head
   meta name="viewport" content="width=device-width, initial-scale=1"
   meta name="HandheldFriendly" content="True"
   meta name="MobileOptimized" content="320"
+  meta name="description" content="{{ description }}"
   meta http-equiv="Content-Type" content="text/html; charset=utf-8"
 
-  meta name="description" content="{{ description }}" property="og:description"
+  / Open Graph tabs 
+  meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}"
   meta property="og:image" content="{{ og_image }}"
   meta property="og:url" content="{{ canonical }}"
   meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"

@@ -2,7 +2,6 @@
 layout: post
 title:  "Generating Migrations"
 date:   2014-05-14 12:07:17
-<!-- categories: jekyll update -->
 ---
 
 > Migrations are a feature of Active Record that allows you to evolve your database schema over time. Rather than write schema modifications in pure SQL, migrations allow you to use an easy Ruby DSL to describe changes to your tables.
