@@ -68,20 +68,18 @@ head
     link rel="alternate" href="{{ canonical }}/atom.xml" title="{{page.title}}" type="application/atom+xml"
   | {% endif %}
 
+  link rel="author" href="{{ site.url }}/humans.txt"
+  link href="favicon.ico" rel="icon" type="image/x-icon"
+  link href="favicon.ico" rel=("shortcut icon") type="image/x-icon"
   link rel="canonical" href="{{ canonical }}"
+
+  link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,800,400" rel="stylesheet" type="text/css"
+  link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
 
   | {% css_asset_tag global_css %}
     - /_assets/css/app.scss
     - /_assets/css/syntax.css
   | {% endcss_asset_tag %}
-
-  link rel="author" href="{{ site.url }}/humans.txt"
-  
-  link href="favicon.ico" rel="icon" type="image/x-icon"
-  link href="favicon.ico" rel=("shortcut icon") type="image/x-icon"
-
-  link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,800,400" rel="stylesheet" type="text/css"
-  link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
 
 body
   .header
