@@ -15,7 +15,7 @@ Today, we set the students this problem:
 I decided to play the game too. I tried to get the solution below the character value of a tweet, 140 characters.
 
 {% highlight ruby linenos %}
-a=%w(Abdul Akunor Anand Colin Emma Francesco Habib Hisako Kate Laurence Lee Luke Manuel Shehryar Stefanie).shuffle;p "Group size?";c=a.each_slice(gets.to_i).to_a;c[0]+=c.pop if c[-1].size==1;n=0;c.each {|k|p "Group #{n+=1}: #{k.join(', ')}"}
+a=%w(Abdul Akunor Anand Colin Emma Francesco Habib Hisako Kate Laurence Lee Luke Manuel Shehryar Stefanie).shuffle;p "Group size?";c=a.each_slice(gets.to_i).to_a;c[0]+=c.pop if c[-1].size==1;n=0;c.each{|k|p "Group #{n+=1}: #{k.join(', ')}"}
 {% endhighlight %}
 
 Or a bit more verbose:
@@ -25,5 +25,5 @@ p "Group size?"
 c=a.each_slice(gets.to_i).to_a
 c[0]+=c.pop if c[-1].size==1
 n=0
-c.each {|k|p "Group #{n+=1}: #{k.join(', ')}"}
+c.each{|k|p "Group #{n+=1}: #{k.join(', ')}"}
 {% endhighlight %}
