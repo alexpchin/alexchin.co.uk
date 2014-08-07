@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "We can’t automatically merge this pull request."
+title:  "The Partners Problem"
 date:   2014-08-6 09:01:00
 category: Code
 tags:  [Mentoring, Code]
