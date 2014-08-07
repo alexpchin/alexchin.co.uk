@@ -214,7 +214,7 @@
   display: block;
   white-space: pre;
   overflow-x: auto;
-  word-wrap: normal;
+  word-wrap: break-word;
   color: #222;
   font-weight: normal;
   font-family: Menlo, Monaco, Consolas,"Courier New", monospace;
