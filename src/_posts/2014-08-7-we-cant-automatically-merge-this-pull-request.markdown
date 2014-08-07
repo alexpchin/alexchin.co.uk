@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "We can’t automatically merge this pull request."
-date:   2014-08-7 15:42:00
+date:   2014-08-7 09:01:00
 category: Code
 tags:  [Mentoring, Code]
 ---
@@ -28,6 +28,8 @@ To solve this, you need to
 - 1. Git fetch upstream
 
 {% highlight ruby linenos %}
+git fetch upstream
+{% endhighlight %}
 
 - 2. Go to your master. Never develop there.
 
