@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "The Partners Problem"
+title:  "Code Golf - The Partners Problem"
 date:   2014-08-6 09:01:00
-category: Code
-tags:  [Mentoring, Code]
+category: Code Golf
+tags:  [Mentoring, Code, Code Golf]
 ---
 
 Today, we set the students this problem:
