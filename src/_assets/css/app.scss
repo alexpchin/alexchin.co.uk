@@ -54,18 +54,34 @@ body {
     text-decoration: none;
   }
 
-  .top-bar .name {
-    min-width: 300px;
+  .top-bar {
 
-    span {
-      text-transform: uppercase;
-      font-weight: 800;
+    .name {
+      min-width: 300px;
+
+      span {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h1 a {
+        padding: 0;
+      }
     }
 
-    h1 a {
-      padding: 0;
+    .top-bar-section {
+      ul {
+        li {
+          background: #E45635;
+        }
+      }
     }
+
   }
+}
+
+#search-results {
+  display: none;
 }
 
 .footer {

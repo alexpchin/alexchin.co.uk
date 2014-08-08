@@ -64,6 +64,7 @@ module Jekyll
 
       # Add a static file entry for the zip file, otherwise Site::cleanup will remove it.
       site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/', 'sitemap.xml')
+      log 'Generating Sitemap.xml'
     end
 
     private
@@ -141,12 +142,15 @@ module Jekyll
       baseurl = site.config['baseurl']
       baseurl = baseurl[0..-2] if baseurl=~/\/$/
 
-      "
-  <url>
-    <loc>#{baseurl}#{path}</loc>
-    <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>
-" + attrs.map { |k,v| "    <#{k}>#{v}</#{k}>" }.join("\n") + "
-  </url>"
+      " <url>
+          <loc>#{baseurl}#{path}</loc>
+          <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>
+      " + attrs.map { |k,v| "    <#{k}>#{v}</#{k}>" }.join("\n") + "
+        </url>"
+    end
+
+    def log(message)
+      puts "\n#{message}\n\n"
     end
 
   end
