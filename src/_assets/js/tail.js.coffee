@@ -9,3 +9,10 @@ disqus_shortname = "alexchin"
   (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
   return
 )()
+
+$ ->
+  $("#search-query").lunrSearch
+    indexUrl: "/search.json"
+    results: "#search-results"
+    entries: ".entries"
+    template: "#search-results-template"

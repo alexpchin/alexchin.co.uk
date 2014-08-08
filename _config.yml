@@ -28,7 +28,7 @@ github: //github.com/alexpchin
 instagram: //instagram.com/alexpchin
 from: "Shoreditch, London, United Kingdom"
 author_facebook: https://www.facebook.com/alexpchin
-# google_plus: //plus.google.com/109774408645971700391
+google_plus: //plus.google.com/102653289559667402852
 # youtube: //www.youtube.com/user/alexpchin
 
 # Plugin Settings
@@ -42,8 +42,17 @@ asset_pipeline:
   display_path: nil
   gzip: true
 
-# sitemap:
-#   local: false
-#   repo: https://github.com/alexpchin/alexchin.github.io.git
+sitemap:
+  # local: false
+  file: "/sitemap.xml"
+  exclude:
+      - "/atom.xml"
+      - "/feed.xml"
+      - "/feed/index.xml"
+  include_posts:
+      - "/index.html"
+  change_frequency_name: "change_frequency"
+  priority_name: "priority"
+  # repo: https://github.com/alexpchin/alexchin.github.io.git
 
 # category_dir: category

@@ -42,7 +42,9 @@ gem 'rack-rewrite'
 # Automatic posting using Buffer
 gem 'buff'
 
-# Syntax highlighting
+# JS Search
+gem 'json'
+gem 'nokogiri'
 
 group :development  do
   # A Guard plugin for smarter Jekyll builds
