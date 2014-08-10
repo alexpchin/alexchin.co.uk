@@ -151,8 +151,8 @@ body
   section#search-results
     .row
       .large-12.columns
-        p Search results
-        .entries
+        h2 Search results
+        ul.entries.posts
 
   .row
     .large-12.columns
@@ -177,6 +177,16 @@ body
         a href="https://flattr.com/submit/auto?user_id=alexpchin&url=http%3A%2F%2Fwww.alexchin.co.uk{{ page.url }}" target="_blank" 
           img alt=("Flattr this") border="0" src="//api.flattr.com/button/flattr-badge-large.png" title=("Flattr this") /
 
+  | {% raw %}
+  <script id="search-results-template" type="text/mustache">
+    | {{#entries}}
+      <li>
+        {{#date}}Post&nbsp;&raquo;&nbsp;<span><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time>&nbsp;&raquo;&nbsp;</span>{{/date}}{{^date}}Page&nbsp;&raquo;&nbsp;{{/date}}
+          <a href="{{url}}">{{title}}</a>
+      </li>
+    | {{/entries}} 
+  </script>
+  | {% endraw %}
 
   | {% javascript_asset_tag tail_js %}
     - /_assets/components/modernizr/modernizr.js

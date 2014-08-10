@@ -53,6 +53,5 @@ sitemap:
       - "/index.html"
   change_frequency_name: "change_frequency"
   priority_name: "priority"
-  # repo: https://github.com/alexpchin/alexchin.github.io.git
 
 # category_dir: category
