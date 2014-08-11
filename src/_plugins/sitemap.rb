@@ -118,7 +118,7 @@ module Jekyll
       result
     end
 
-    def get_attrs( page )
+    def get_attrs(page)
       attrs              = Hash.new
       attrs[:changefreq] = page.data['changefreq'] if page.data.has_key?('changefreq')
       attrs[:priority]   = page.data['priority'] if page.data.has_key?('priority')
@@ -142,11 +142,11 @@ module Jekyll
       baseurl = site.config['baseurl']
       baseurl = baseurl[0..-2] if baseurl=~/\/$/
 
-      " <url>
-          <loc>#{baseurl}#{path}</loc>
-          <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>
-      " + attrs.map { |k,v| "    <#{k}>#{v}</#{k}>" }.join("\n") + "
-        </url>"
+  "<url>
+      <loc>#{baseurl}#{path}</loc>
+      <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>
+  " + attrs.map { |k,v| "    <#{k}>#{v}</#{k}>" }.join("\n") + "
+    </url>"
     end
 
     def log(message)

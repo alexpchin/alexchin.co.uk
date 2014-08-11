@@ -6,6 +6,7 @@ plugins: ./src/_plugins
 # Site Specific Settings
 timezone: United_Kingdom/London
 permalink: /:title
+baseurl: http://www.alexchin.co.uk
 url: http://www.alexchin.co.uk
 default_page_image: http://www.alexchin.co.uk/images/alex.png
 default_home_image: http://www.alexchin.co.uk/images/alex.png
