@@ -1,23 +1,11 @@
-# Jekyll sitemap page generator.
+# encoding: utf-8
+#
+# Jekyll sitemap generator.
 # http://recursive-design.com/projects/jekyll-plugins/
-#
 # Version: 0.2.4 (201210160037)
-#
-# Copyright (c) 2010 Dave Perrett, http://recursive-design.com/
-# Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
-#
-# A generator that creates a sitemap.xml page for jekyll sites, suitable for submission to
-# google etc.
-#
-# To use it, simply drop this script into the _plugins directory of your Jekyll site.
-#
-# When you compile your jekyll site, this plugin will loop through the list of pages in your
-# site, and generate an entry in sitemap.xml for each one.
 
 require 'pathname'
-
 module Jekyll
-
 
   # Monkey-patch an accessor for a page's containing folder, since
   # we need it to generate the sitemap.
@@ -26,7 +14,6 @@ module Jekyll
       @dir
     end
   end
-
 
   # Sub-class Jekyll::StaticFile to allow recovery from unimportant exception
   # when writing the sitemap file.
@@ -37,15 +24,13 @@ module Jekyll
     end
   end
 
-
   # Generates a sitemap.xml file containing URLs of all pages and posts.
   class SitemapGenerator < Generator
     safe true
     priority :low
 
     # Generates the sitemap.xml file.
-    #
-    #  +site+ is the global Site object.
+    # +site+ is the global Site object.
     def generate(site)
       # Create the destination folder if necessary.
       site_folder = site.config['destination']
@@ -75,13 +60,12 @@ module Jekyll
     end
 
     # Returns a string containing the the XML entries.
-    #
-    #  +site+ is the global Site object.
+    # +site+ is the global Site object.
     def generate_content(site)
       result = ''
 
       # First, try to find any stand-alone pages.
-      site.pages.each { |page|
+      site.pages.each do |page|
         path = page.subfolder + '/' + page.name
 
         # Skip files that don't exist yet (e.g. paginator pages)
@@ -104,7 +88,7 @@ module Jekyll
         path = path[0..-11] if path =~ /\/index.html$/
 
         result += entry(path, mod_date, get_attrs(page), site) unless path =~ /error/
-      }
+      end
 
       # Next, find all the posts.
       posts = site.site_payload['site']['posts']
@@ -141,9 +125,7 @@ module Jekyll
       # Remove the trailing slash from the baseurl if it is present, for consistency.
       baseurl = site.config['url']
       baseurl = baseurl[0..-2] if baseurl=~/\/$/
-    "<url><loc>#{baseurl}#{path}</loc><lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>
-    " + attrs.map { |k,v| "xs<#{k}>#{v}</#{k}>" }.join("\n") + "
-    </url>"
+    "<url><loc>#{baseurl}#{path}</loc><lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>#{attrs.map { |k,v| "xs<#{k}>#{v}</#{k}>" }.join("\n") }</url>"
     end
 
     def log(message)
