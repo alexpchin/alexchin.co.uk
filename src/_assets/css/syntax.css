@@ -208,13 +208,15 @@
   padding: 8px 3px;
   overflow: hidden;
   background: #fff;
+  margin: 0 0 10px;
+  font-size: 70%;
 }
 
 .post > .highlight pre code {
   display: block;
   white-space: pre;
   overflow-x: auto;
-  word-wrap: break-word;
+/*  word-wrap: break-word;*/
   color: #222;
   font-weight: normal;
   font-family: Menlo, Monaco, Consolas,"Courier New", monospace;
