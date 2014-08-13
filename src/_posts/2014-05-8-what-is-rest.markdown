@@ -2,6 +2,8 @@
 layout: post
 title:  "What is REST?"
 date:   2014-05-08 15:07:17
+category: Mentoring
+tags:  [Mentoring, Code]
 ---
 
 REST stands for **Representional State Transfer** and is defined on Wikipedia as:

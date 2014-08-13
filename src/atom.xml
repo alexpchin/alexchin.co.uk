@@ -4,21 +4,21 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[{{ page.category | titlecase }}]]></title>
-  <link href="{{ site.url }}{% category_url page.category %}/atom.xml" rel="self"/>
-  <link href="{{ site.url }}{% category_url page.category %}"/>
+  <title><![CDATA[{{ site.title }}]]></title>
+  <link href="{{ site.url }}/atom.xml" rel="self"/>
+  <link href="{{ site.url }}"/>
     {% capture updated_on %}
-    {% for post in site.categories[page.category] limit: 1 %}
+    {% for post in site.posts limit: 1 %}
     {{ post.date | date_to_xmlschema}}
     {% endfor %}
     {% endcapture %}
   <updated>{{updated_on}}</updated>
-  <id>{{ site.url }}{% category_url page.category %}</id>
+  <id>{{ site.url }}/</id>
   <author>
     <name><![CDATA[{{ site.author | strip_html }}]]></name>
     {% if site.email %}<email><![CDATA[{{ site.email }}]]></email>{% endif %}
   </author>
-  {% for post in site.categories[page.category] limit: 10 %}
+  {% for post in site.posts limit: 10 %}
   <entry>
     <title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>
     <link href="{{ site.url }}{{ post.url }}"/>

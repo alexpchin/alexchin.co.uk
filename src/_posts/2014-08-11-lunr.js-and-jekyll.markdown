@@ -2,8 +2,8 @@
 layout: post
 title:  "Lunr.js and Jekyll"
 date:   2014-08-11 09:01:00
-category: Startups
-tags:  [Startups, Code]
+category: Code
+tags:  [Javascript, Coding, Search]
 ---
 
 I wanted to get search functionality up and running with my jekyll blog. I looked at a number of options but I decided to go with Lunr.js.

@@ -2,6 +2,8 @@
 layout: post
 title:  "Rails Generating & Scaffolding"
 date:   2014-05-13 12:07:17
+category: Rails
+tags:  [Mentoring, Code]
 ---
 
 Rails' use of **strict naming conventions** means a lot of core code SHOULD be in the same format whoever writes it? It could be written by a friend, colleague or a computer... it shouldn't matter because the same Rails rules apply to everyone.

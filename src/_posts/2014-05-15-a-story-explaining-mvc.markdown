@@ -2,6 +2,8 @@
 layout: post
 title:  "A story explaining MVC"
 date:   2014-05-15 12:07:17
+category: Mentoring
+tags:  [Mentoring, Code]
 ---
 
 MVC stands for:

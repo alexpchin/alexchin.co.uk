@@ -16,9 +16,6 @@ send_to_buffer: true
 buffer_profiles:
     - 53df98d2a3f420da7f65c445
 
-# Syndication Settings
-# feed: http://feeds.feedburner.com/neverstopbuilding/TGMp
-
 #Builder Information
 author: Alex Chin
 email: alex@alexchin.co.uk
@@ -29,12 +26,13 @@ instagram: //instagram.com/alexpchin
 from: "Shoreditch, London, United Kingdom"
 author_facebook: https://www.facebook.com/alexpchin
 google_plus: //plus.google.com/102653289559667402852
-# youtube: //www.youtube.com/user/alexpchin
+vimeo: //vimeo.com/alexpchin
 
 # Plugin Settings
 markdown: redcarpet
 highlighter: true
 
+# Asset Pipeline Settings
 asset_pipeline:
   bundle: true
   compress: true
@@ -42,8 +40,9 @@ asset_pipeline:
   display_path: nil
   gzip: true
 
+# Sitemap Settings
 sitemap:
-  # local: false
+  local: true
   file: "/sitemap.xml"
   exclude:
       - "/atom.xml"
@@ -54,4 +53,8 @@ sitemap:
   change_frequency_name: "change_frequency"
   priority_name: "priority"
 
-# category_dir: category
+# Category Settings
+category_dir: category
+
+# Syndication Settings
+# feed: http://feeds.feedburner.com/alexpchin/TGMp

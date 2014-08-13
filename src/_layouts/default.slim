@@ -65,11 +65,11 @@ head
   meta property="og:type" content="{% if page.og_type %}{{page.og_type}}{% else %}blog{% endif %}"
 
   | {% if page.index == true %}
-    link rel="alternate" href="{{ site.feed }}" title="{{ site.title }}" type="application/atom+xml"
+  link rel="alternate" href="{{ site.feed }}" title="{{ site.title }}" type="application/atom+xml"
   | {% endif %}
 
   | {% if page.has_feed == true %}
-    link rel="alternate" href="{{ canonical }}/atom.xml" title="{{page.title}}" type="application/atom+xml"
+  link rel="alternate" href="{{ canonical }}/atom.xml" title="{{page.title}}" type="application/atom+xml"
   | {% endif %}
 
   link rel="author" href="{{ site.url }}/humans.txt"
@@ -146,7 +146,7 @@ body
                     a href="/the-making-of-this-site" The making of this site
 
               li
-                a href="/"  Archive
+                a href="/archive"  Archive
 
   section#search-results
     .row

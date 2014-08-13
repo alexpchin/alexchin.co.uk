@@ -2,8 +2,8 @@
 layout: post
 title:  "We can’t automatically merge this pull request"
 date:   2014-08-7 09:01:00
-category: Code
-tags:  [Mentoring, Code]
+category: Teaching
+tags:  [Mentoring, Git]
 ---
 
 Github makes very easy to collaborate with people, however sometime it’s a bit complicated to understand how to use Pull Request, and in particular how to make sure that the feature branch can be merged in master in a Fast Forward way.

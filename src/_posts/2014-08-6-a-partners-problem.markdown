@@ -3,7 +3,7 @@ layout: post
 title:  "Code Golf - The Partners Problem"
 date:   2014-08-6 09:01:00
 category: Code Golf
-tags:  [Mentoring, Code, Code Golf]
+tags:  [Code, Code Golf]
 ---
 
 Today, we set the students this problem:

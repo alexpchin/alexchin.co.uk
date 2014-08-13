@@ -2,6 +2,8 @@
 layout: post
 title:  "Rails Naming Conventions"
 date:   2014-05-08 15:07:17
+category: Mentoring
+tags:  [Mentoring, Code]
 ---
 
 I think the most confusing thing that I have found about Ruby on Rails so far has been the transition from (trying to) write code myself to the use of the fabled "Rails Magic". So, to help my own understanding of a few core Ruby on Rails concepts, I have decided to write something on what I think is a ***CRITICAL*** topic... the idea of **Convention over Configuration** and why (in my mind) it is the most important thing that helps Rails become magic!

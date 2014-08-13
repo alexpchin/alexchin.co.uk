@@ -1,0 +1,19 @@
+article.row
+  .large-12.columns.top-spaced
+    h3
+      a href="{{ post.url }}" {{ post.title }}
+    p
+      | {% slim date.slim %}
+      | {% unless post.category == page.category %}
+      |  in
+      a< href="{% category_url post.category %}" {{post.category | titlecase }}
+      | {% endunless %}
+
+    p.content
+      | {% capture description %}
+      | {% if post.description %}{{ post.description | strip_breaks | condense_spaces | truncate:200 }}
+      | {% else %}{{ post.content | markdownify | strip_html | strip_breaks | condense_spaces | decode | truncate:200 }}
+      | {% endif %}
+      | {% endcapture %}
+      | {{ description }}
+      a< href="{{post.url}}" read more <i class="fa fa-caret-right"></i>
