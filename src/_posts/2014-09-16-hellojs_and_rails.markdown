@@ -104,4 +104,5 @@ hello.on('auth.login', function(auth){
 
 - 14. Create a new user using Devise using the information from returned from hello.js for a provider
 
+(To be continued in another blog post).
 
