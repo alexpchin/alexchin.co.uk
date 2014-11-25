@@ -4,3 +4,10 @@ namespace :assets do
     sh 'bundle exec jekyll build'
   end
 end
+
+require 'html/proofer'
+
+task :test do
+  sh "bundle exec jekyll build"
+  HTML::Proofer.new("/build").run
+end

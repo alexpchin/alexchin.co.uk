@@ -56,3 +56,7 @@ group :development  do
   # Guard::LiveReload automatically reload your browser when 'view' files are modified.
   gem 'guard-livereload'
 end
+
+group :test  do
+  gem 'html-proofer'
+end
