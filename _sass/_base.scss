@@ -97,6 +97,8 @@ header h1 {
 .logo {
   display: block;
   margin-bottom: 20px;
+  font-size: 30px;
+  text-transform: none;
 }
 
 .logo img {
@@ -105,12 +107,7 @@ header h1 {
 
 .logo:hover {
   background: #fff !important;
-  /* filter: invert(100%); */
-  /* -webkit-filter: invert(100%); */
-  /* background-color: #fff; */
-}
-
-.logo:hover img {
+  color: #0d8cff;
 }
 
 header a {
