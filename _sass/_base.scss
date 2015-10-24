@@ -1,0 +1,401 @@
+/*******************
+ * basic elements
+ *******************/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font: 13px "Helvetica Neue";
+  line-height: 1.5;
+  transition: none;
+}
+
+a {
+  text-decoration: underline;
+  color: #000;
+}
+
+a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+img {
+  transition: .2s transform;
+}
+
+img:hover {
+  transition: 70s transform;
+  transform: rotate(4deg);
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+p {
+  margin: 20px 0px;
+}
+
+hr {
+  border:none;
+  border-top: 1px solid #ccc;
+  width: 70%;
+}
+
+
+/*******************
+ * container
+ *******************/
+
+main {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+
+section, header {
+  padding: 40px 0;
+}
+
+
+
+/*******************
+ * header
+ *******************/
+
+header {
+  text-align: center;
+}
+
+header form {
+  text-transform: uppercase;
+}
+
+header p {
+  margin: 20px;
+  font-style: italic;
+}
+
+header h1 {
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 45px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 80%;
+}
+
+.logo:hover {
+  background: #fff !important;
+  /* filter: invert(100%); */
+  /* -webkit-filter: invert(100%); */
+  /* background-color: #fff; */
+}
+
+.logo:hover img {
+}
+
+header a {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header nav a {
+  margin: 0px 10px;
+  font-size: 12px;
+}
+
+header input {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 1px 4px;
+}
+
+/*******************
+ * articles
+ *******************/
+
+section.post p {
+  text-align: justify;
+}
+
+section.post.news p {
+  text-align: left;
+}
+
+article h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+article h3 a {
+  text-decoration: none;
+}
+
+article img {
+  width: 100%;
+  display: block;
+}
+
+article nav a {
+  text-transform: uppercase;
+  margin: 0px 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size:.9em;
+}
+
+
+
+/*******************
+ * dumb front page stuff
+ *******************/
+
+
+.newest-thing {
+  max-width: 500px;
+  margin: auto;
+}
+
+.next-thing {
+  padding: 40px 0;
+}
+
+h3.older-things {
+  margin-bottom: 20px;
+  /* margin-top: 40px; */
+}
+
+h3.next-thing-label {
+  margin-bottom: 20px !important;
+}
+
+
+
+/*******************
+ * labels
+ *******************/
+
+.label {
+  text-transform: uppercase;
+  color: #fff;
+  font-style: normal;
+  text-decoration: none !important;
+  font-size: 13px;
+  padding: 3px 6px;
+  font-weight: normal;
+}
+
+.label.inline {
+  display: inline-block;
+  margin: 0;
+}
+
+.label.red {
+  background-color: #ff0030;
+}
+
+.label.blue {
+  background-color: #0d8cff;
+}
+
+.label.green {
+  background-color: #2ec83c;
+}
+
+
+
+
+/*******************
+ * the things page
+ *******************/
+
+section.things {
+  overflow: auto;
+}
+
+section.things img {
+  width: 100%;
+  /* height: 250px; */
+}
+
+section.things article {
+  width: 50%;
+  padding: 20px 0px;
+  float: left;
+  height: 500px;
+}
+
+section.things article p.blurb {
+  height: 2em;
+}
+
+
+section.things nav a {
+  margin: 0;
+  font-weight: bold;
+  font-size:.9em;
+}
+
+/* start crazy centering thing */
+section.things article:nth-child(odd) {
+  text-align: left;
+  padding-left: 30px;
+}
+
+section.things article:nth-child(even) nav a {
+  margin-left: 10px;
+}
+
+section.things article:nth-child(even) {
+  padding-right: 30px;
+  text-align: right;
+}
+
+section.things article:nth-last-child(1):nth-child(even) {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  width: 50%;
+  margin: 0 25%;
+}
+/* end crazy */
+
+
+
+/********************************
+ * individual articles and pages
+ *******************************/
+
+
+h1.page-title {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+section.post, .page {
+  text-align: left;
+  font-size: 15px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+}
+
+.page p {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+section.post nav a {
+  margin: 0;
+}
+
+hr.m {
+  margin: 40px auto;
+}
+
+
+/*******************
+ * wait, more crazy 
+ *******************/
+
+.unmain {
+  transform: rotate(180deg) rotateY(180deg);
+  -webkit-transform: rotate(180deg) rotateY(180deg);
+}
+
+.timer {
+  text-align: center;
+  margin: auto;
+  position: relative;
+  width: 70%;
+}
+
+.timer span {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  padding: 0px 1px;
+}
+
+.timer div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: #000;
+  height: 20%;
+}
+
+/* .timer:nth-child(1) div { */
+/*   background-color: blue; */
+/* } */
+/*  */
+/* .timer:nth-child(2) div { */
+/*   background-color: yellow; */
+/* } */
+/*  */
+/* .timer:nth-child(3) div { */
+/*   background-color: purple; */
+/* } */
+/*  */
+/* .timer:nth-child(4) div { */
+/*   background-color: green; */
+/* } */
+
+
+
+
+
+/***************************
+ * mediaaaaaaaaaaaa query
+ **************************/
+
+@media (max-device-width: 800px) {
+  section.things article {
+    width: 100%;
+    float: none;
+    padding: 0;
+    text-align: center !important;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0 !important;
+  }
+
+  section.things article:nth-last-child(1):nth-child(even) {
+    margin: 0;
+    width: 100%;
+  }
+
+  header .logo img {
+    width: 100%;
+  }
+
+}

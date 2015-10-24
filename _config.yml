@@ -1,60 +1,14 @@
-# Directory Settings
-source: ./src
-destination: ./build
-plugins: ./src/_plugins
+# Site settings
+title: Your awesome title
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: jekyllrb
+github_username:  jekyll
 
-# Site Specific Settings
-timezone: United_Kingdom/London
-permalink: /:title
-url: http://www.alexchin.co.uk
-default_page_image: http://www.alexchin.co.uk/images/alex.png
-default_home_image: http://www.alexchin.co.uk/images/alex.png
-title: Alex Chin's little space on the web.
-description: "Coffee & code. Start-up tips and coding tricks by Alex Chin."
-future: false
-send_to_buffer: true
-buffer_profiles:
-    - 53df98d2a3f420da7f65c445
-
-#Builder Information
-author: Alex Chin
-email: alex@alexchin.co.uk
-twitter: //twitter.com/alexpchin
-twitter_username: alexpchin
-github: //github.com/alexpchin
-instagram: //instagram.com/alexpchin
-from: "Shoreditch, London, United Kingdom"
-author_facebook: https://www.facebook.com/alexpchin
-google_plus: //plus.google.com/102653289559667402852
-vimeo: //vimeo.com/alexpchin
-
-# Plugin Settings
-markdown: redcarpet
-highlighter: true
-
-# Asset Pipeline Settings
-asset_pipeline:
-  bundle: true
-  compress: true
-  output_path: assets
-  display_path: nil
-  gzip: true
-
-# Sitemap Settings
-sitemap:
-  local: true
-  file: "/sitemap.xml"
-  exclude:
-      - "/atom.xml"
-      - "/feed.xml"
-      - "/feed/index.xml"
-  include_posts:
-      - "/index.html"
-  change_frequency_name: "change_frequency"
-  priority_name: "priority"
-
-# Category Settings
-category_dir: category
-
-# Syndication Settings
-# feed: http://feeds.feedburner.com/alexpchin/TGMp
+# Build settings
+markdown: kramdown

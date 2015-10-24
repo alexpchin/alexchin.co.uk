@@ -1,8 +1,8 @@
-language: ruby
-before_install:
-  - travis_retry gem install jekyll
-script: jekyll build
+# language: ruby
+# before_install:
+#   - travis_retry gem install jekyll
+# script: jekyll build
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
