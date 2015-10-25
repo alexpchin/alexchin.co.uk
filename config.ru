@@ -24,7 +24,7 @@ end
 # Ensure the site is served from the correct location and the headers are appropriate
 use Rack::TryStatic,
   urls: %w[/], # match all requests 
-  root: 'build',
+  root: '_site',
   try: ['index.html', '/index.html'],
   header_rules: [
     ['atom.xml', { 'Content-Type' => 'application/atom+xml' }],
@@ -39,4 +39,4 @@ use Rack::TryStatic,
   ]
 
 # 404s should be sent to that simple page we created above
-run Rack::NotFound.new('build/404.html')
+run Rack::NotFound.new('_site/404.html')
