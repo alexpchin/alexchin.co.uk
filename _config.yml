@@ -3,8 +3,12 @@ title: aLeXCHiN
 email: alex@alexchin.co.uk
 description: > # 
   aLeXCHin's home on the web.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://www.alexchin.co.uk" # the base hostname & protocol for your site
+
+# the subpath of your site, e.g. /blog/
+baseurl: "" 
+
+# the base hostname & protocol for your site
+url: "http://www.alexchin.co.uk"
 twitter_username: alexpchin
 github_username:  alexpchin
 
