@@ -14,3 +14,5 @@ github_username:  alexpchin
 
 # Build settings
 markdown: kramdown
+
+exclude: [".sass-cache", "_site", "vendor"]
