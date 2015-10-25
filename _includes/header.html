@@ -3,42 +3,11 @@
     /*** aLeXCHiN ***/
   </a>
 
-  <nav id="menu">
-    <a href="{{ site.baseurl }}/things">Things</a> | 
-    {% for page in site.pages %}
-      {% unless page.exclude %}
-      {% if page.title %}
-        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
-          {{ page.title }}
-        </a> |
-      {% endif %}
-      {% endunless %}
-    {% endfor %}
-    <a href="http://twitter.com/{{ site.twitter_username }}" target="_blank">Twitter</a> | 
-    <a href="http://github.com/{{ site.github_username }}" target="_blank">Github</a> 
-  </nav>
+  {% include mainmenu.html %}
 
   <p>high-quality internet things</p>
-  <!-- Begin MailChimp Signup Form -->
-  <div id="mc_embed_signup">
-    <form action="//womapp.us2.list-manage.com/subscribe/post?u=5eb89beb304e5684faae47042&amp;id=d761de31a9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <div id="mc_embed_signup_scroll">
 
-        <div class="mc-field-group">
-          <label for="mce-EMAIL">SUBSCRIBE TO OUR NEWSLETTER: </label>
-          <input type="email" value="" placeholder="EMAIL ADDRESS" name="EMAIL" class="required email" id="mce-EMAIL">
-          <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="button">
-        </div>
-        <div id="mce-responses" class="clear">
-          <div class="response" id="mce-error-response" style="display:none"></div>
-          <div class="response" id="mce-success-response" style="display:none"></div>
-        </div>
-        <div style="position: absolute; left: -5000px;">
-          <input type="text" name="b_5eb89beb304e5684faae47042_d761de31a9" tabindex="-1" value="">
-        </div>
-      </div>
-    </form>
-  </div>
-  <!--End mc_embed_signup-->
+  {% include newsletter.html %}
+
 </header>
 <hr />

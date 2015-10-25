@@ -1,0 +1,14 @@
+<nav id="menu">
+  <a href="{{ site.baseurl }}/things">Things</a> | 
+  {% for page in site.pages %}
+    {% unless page.exclude %}
+    {% if page.title %}
+      <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
+        {{ page.title }}
+      </a> |
+    {% endif %}
+    {% endunless %}
+  {% endfor %}
+  <a href="http://twitter.com/{{ site.twitter_username }}" target="_blank">Twitter</a> | 
+  <a href="http://github.com/{{ site.github_username }}" target="_blank">Github</a> 
+</nav>
