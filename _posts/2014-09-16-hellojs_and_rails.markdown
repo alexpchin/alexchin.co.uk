@@ -4,7 +4,7 @@ title:  "Hello.js and Rails"
 date:   2014-09-16 09:01:00
 category: Code, JS
 tags:  [Mentoring, Code]
-image: http://uselesspress.org/images/animals.jpg
+image: 
 ---
 
 I thought I'd have a little play with integrating [hello.js](http://adodson.com/hello.js/) and Rails. Devise and Oauth2 are quite good but I liked the idea of doing all of this functionality client-side.

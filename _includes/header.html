@@ -1,24 +1,27 @@
 <header>
-  <a href="http://uselesspress.org/" class="logo">
-    <!-- <img src="/theme/images/logo3.png" alt="Useless Press"> -->
+  <a href="{{ site.baseurl }}" class="logo">
     /*** aLeXCHiN ***/
   </a>
 
   <nav id="menu">
+    <a href="{{ site.baseurl }}/things">Things</a> | 
     {% for page in site.pages %}
-    {% if page.title %}
-    <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a> |
-    {% endif %}
+      {% unless page.exclude %}
+      {% if page.title %}
+        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
+          {{ page.title }}
+        </a> |
+      {% endif %}
+      {% endunless %}
     {% endfor %}
-    <a href="http://twitter.com/alexpchin">TWITTER</a> | 
-    <a href="http://github.com/alexpchin">GITHUB</a> 
+    <a href="http://twitter.com/{{ site.twitter_username }}" target="_blank">Twitter</a> | 
+    <a href="http://github.com/{{ site.github_username }}" target="_blank">Github</a> 
   </nav>
 
   <p>high-quality internet things</p>
-
   <!-- Begin MailChimp Signup Form -->
   <div id="mc_embed_signup">
-    <form action="//uselesspress.us11.list-manage.com/subscribe/post?u=37332dac8fb4d08bd57d762d5&amp;id=d763377437" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <form action="//womapp.us2.list-manage.com/subscribe/post?u=5eb89beb304e5684faae47042&amp;id=d761de31a9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
 
         <div class="mc-field-group">
@@ -31,12 +34,11 @@
           <div class="response" id="mce-success-response" style="display:none"></div>
         </div>
         <div style="position: absolute; left: -5000px;">
-          <input type="text" name="b_37332dac8fb4d08bd57d762d5_d763377437" tabindex="-1" value="">
+          <input type="text" name="b_5eb89beb304e5684faae47042_d761de31a9" tabindex="-1" value="">
         </div>
       </div>
     </form>
   </div>
   <!--End mc_embed_signup-->
-  <!-- <div>Follow us on <a href="http://twitter.com/theuselesspress">TWITTER</a></div> -->
 </header>
 <hr />

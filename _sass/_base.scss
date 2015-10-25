@@ -189,8 +189,6 @@ h3.next-thing-label {
   margin-bottom: 20px !important;
 }
 
-
-
 /*******************
  * labels
  *******************/
@@ -316,41 +314,49 @@ hr.m {
   margin: 40px auto;
 }
 
+/*******************
+ * footer
+ *******************/
+
+footer {
+  text-align: center;
+  margin: 20px auto;
+}
 
 /*******************
  * wait, more crazy 
  *******************/
 
-.unmain {
-  transform: rotate(180deg) rotateY(180deg);
-  -webkit-transform: rotate(180deg) rotateY(180deg);
-}
+// .unmain {
+//   transform: rotate(180deg) rotateY(180deg);
+//   -webkit-transform: rotate(180deg) rotateY(180deg);
+// }
 
-.timer {
-  text-align: center;
-  margin: auto;
-  position: relative;
-  width: 70%;
-}
+// .timer {
+//   text-align: center;
+//   margin: auto;
+//   position: relative;
+//   width: 70%;
+// }
 
-.timer span {
-  position: relative;
-  z-index: 2;
-  background-color: #fff;
-  padding: 0px 1px;
-}
+// .timer span {
+//   position: relative;
+//   z-index: 2;
+//   background-color: #fff;
+//   padding: 0px 1px;
+// }
 
-.timer div {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  z-index: 0;
-  background-color: #000;
-  height: 20%;
-}
+// .timer div {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   top: 0;
+//   bottom: 0;
+//   z-index: 0;
+//   background-color: #000;
+//   height: 20%;
+// }
 
 /* .timer:nth-child(1) div { */
 /*   background-color: blue; */
@@ -367,9 +373,6 @@ hr.m {
 /* .timer:nth-child(4) div { */
 /*   background-color: green; */
 /* } */
-
-
-
 
 
 /***************************
