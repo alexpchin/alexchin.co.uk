@@ -1,0 +1,538 @@
+---
+layout: post
+title:  "Lunr.js and Jekyll"
+date:   2014-08-11 09:01:00
+category: Code
+tags:  [Javascript, Coding, Search]
+---
+
+I wanted to get search functionality up and running with my jekyll blog. I looked at a number of options but I decided to go with Lunr.js.
+
+lunr.js is a simple full text search engine for client side applications. It is designed to be small, yet full featured, enabling you to provide a great search experience without the need for external, server side, search services.
+
+[lunr.js](http://lunrjs.com/) has no external dependencies, although it does require a modern browser with ES5 support. In older browsers you can use an ES5 shim, such as [augment.js](http://augmentjs.com/), to provide any missing JavaScript functionality.
+
+More information from [here](https://github.com/slashdotdash/jekyll-lunr-js-search).
+
+### How to use lunr.js with jekyll
+
+#### 1. Place this plugin inside the _plugins folder in the root of your Jekyll site.
+I have a seperate `/src/` filestructure for my blog, so mine is actually found at `/src/_plugins/`.
+
+{% highlight ruby linenos %}
+require 'rubygems'
+require 'json'
+
+module Jekyll
+
+  class Indexer < Generator
+
+    def initialize(config={})
+      super(config)
+      
+      lunr_config = { 
+        'excludes' => [],
+        'strip_index_html' => false,
+        'min_length' => 3,
+        'stopwords' => 'stopwords.txt'
+      }.merge!(config['lunr_search'] || {})
+      
+      @excludes = lunr_config['excludes']
+      
+      # if web host supports index.html as default doc, then optionally exclude it from the url 
+      @strip_index_html = lunr_config['strip_index_html']
+
+      # stop word exclusion configuration
+      @min_length = lunr_config['min_length']
+      @stopwords_file = lunr_config['stopwords']
+    end
+
+    # Index all pages except pages matching any value in config['lunr_excludes'] or with date['exclude_from_search']
+    # The main content from each page is extracted and saved to disk as json
+    def generate(site)
+      puts 'Running the search indexer...'
+
+      # gather pages and posts
+      items = pages_to_index(site)
+      content_renderer = PageRenderer.new(site)
+      index = []
+
+      items.each do |item|
+        entry = SearchEntry.create(item, content_renderer)
+
+        entry.strip_index_suffix_from_url! if @strip_index_html
+        entry.strip_stopwords!(stopwords, @min_length) if File.exists?(@stopwords_file) 
+        
+        index << {
+          :title => entry.title, 
+          :url => entry.url,
+          :date => entry.date,
+          :categories => entry.categories,
+          :body => entry.body
+        }
+        
+        puts 'Indexed ' << "#{entry.title} (#{entry.url})"
+      end
+      
+      json = JSON.generate({:entries => index})
+      
+      # Create destination directory if it doesn't exist yet. Otherwise, we cannot write our file there.
+      Dir::mkdir(site.dest) unless File.directory?(site.dest)
+      
+      # File I/O: create search.json file and write out pretty-printed JSON
+      filename = 'search.json'
+      
+      File.open(File.join(site.dest, filename), "w") do |file|
+        file.write(json)
+      end
+
+      # Keep the search.json file from being cleaned by Jekyll
+      site.static_files << Jekyll::SearchIndexFile.new(site, site.dest, "/", filename)
+    end
+
+  private
+    
+    # load the stopwords file
+    def stopwords
+      @stopwords ||= IO.readlines(@stopwords_file).map { |l| l.strip }
+    end
+    
+    def pages_to_index(site)
+      items = []
+      
+      # deep copy pages
+      site.pages.each {|page| items << page.dup }
+      site.posts.each {|post| items << post.dup }
+
+      # only process files that will be converted to .html and only non excluded files 
+      items.select! {|i| i.output_ext == '.html' && ! @excludes.any? {|s| (i.url =~ Regexp.new(s)) != nil } } 
+      items.reject! {|i| i.data['exclude_from_search'] } 
+      
+      items
+    end
+  end
+end
+require 'nokogiri'
+
+module Jekyll
+
+  class PageRenderer
+    def initialize(site)
+      @site = site
+    end
+    
+    # render the item, parse the output and get all text inside <p> elements
+    def render(item)
+      item.render({}, @site.site_payload)
+      doc = Nokogiri::HTML(item.output)
+      paragraphs = doc.search('//text()').map {|t| t.content }
+      paragraphs = paragraphs.join(" ").gsub("\r", " ").gsub("\n", " ").gsub("\t", " ").gsub(/\s+/, " ")
+    end
+  end
+  
+end
+require 'nokogiri'
+
+module Jekyll
+  
+  class SearchEntry
+    def self.create(page_or_post, renderer)
+      return create_from_post(page_or_post, renderer) if page_or_post.is_a?(Jekyll::Post)
+      return create_from_page(page_or_post, renderer) if page_or_post.is_a?(Jekyll::Page)
+      raise 'Not supported'
+    end
+    
+    def self.create_from_page(page, renderer)
+      title, url = extract_title_and_url(page)
+      body = renderer.render(page)
+      date = nil
+      categories = []
+      
+      SearchEntry.new(title, url, date, categories, body)
+    end
+    
+    def self.create_from_post(post, renderer)
+      title, url = extract_title_and_url(post)
+      body = renderer.render(post)
+      date = post.date
+      categories = post.categories
+      
+      SearchEntry.new(title, url, date, categories, body)
+    end
+
+    def self.extract_title_and_url(item)
+      data = item.to_liquid
+      [ data['title'], data['url'] ]
+    end
+
+    attr_reader :title, :url, :date, :categories, :body
+    
+    def initialize(title, url, date, categories, body)
+      @title, @url, @date, @categories, @body = title, url, date, categories, body
+    end
+    
+    def strip_index_suffix_from_url!
+      @url.gsub!(/index\.html$/, '')
+    end
+    
+    # remove anything that is in the stop words list from the text to be indexed
+    def strip_stopwords!(stopwords, min_length)
+      @body = @body.split.delete_if() do |x| 
+        t = x.downcase.gsub(/[^a-z]/, '')
+        t.length < min_length || stopwords.include?(t)
+      end.join(' ')
+    end    
+  end
+end
+module Jekyll
+  
+  class SearchIndexFile < StaticFile
+    # Override write as the search.json index file has already been created 
+    def write(dest)
+      true
+    end
+  end
+  
+end
+{% endhighlight %}
+
+The content from all Jekyll posts and pages will be indexed to a `search.json` file ready for lunr.js to consume. This happens each time the site is generated.
+
+#### 2. Create a jQuery plugin to search the JSON log.
+(I manage all of my dependencies using Bower).
+
+The next step is to create a jQuery plugin to handle the configuration of lunr.js with the search index JSON data that was generated.
+
+Dependencies for the jQuery plugin are as follows.
+
+* [jQuery](http://jquery.com)
+* [lunr.js](http://lunrjs.com)
+* [Mustache.js](https://github.com/janl/mustache.js)
+* [date.format.js](http://blog.stevenlevithan.com/archives/date-time-format)
+* [URI.js](http://medialize.github.com/URI.js/)
+
+A pre-built version of the jQuery plugin, along with all of the above dependencies, concatenated and minified is available from at [build/search.min.js](https://github.com/slashdotdash/jekyll-lunr-js-search/blob/master/build/search.min.js).
+
+1. Create a file `js/jquery.lunr.search.js` to your Jekyll site's JavaScript directory. And add this code:
+
+{% highlight ruby linenos %}
+(function($) {
+
+  var debounce = function(fn) {
+    var timeout;
+    var slice = Array.prototype.slice;
+
+    return function() {
+      var args = slice.call(arguments),
+          ctx = this;
+
+      clearTimeout(timeout);
+
+      timeout = setTimeout(function () {
+        fn.apply(ctx, args);
+      }, 100);
+    };
+  };
+  
+  // parse a date in yyyy-mm-dd format
+  var parseDate = function(input) {
+    var parts = input.match(/(\d+)/g);
+    return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
+  };
+  
+  var LunrSearch = (function() {
+    function LunrSearch(elem, options) {
+      this.$elem = elem;      
+      this.$results = $(options.results);
+      this.$entries = $(options.entries, this.$results);
+      this.indexDataUrl = options.indexUrl;
+      this.index = this.createIndex();
+      this.template = this.compileTemplate($(options.template));
+      
+      this.initialize();
+    }
+        
+    LunrSearch.prototype.initialize = function() {
+      var self = this;
+      
+      this.loadIndexData(function(data) {
+        self.populateIndex(data);
+        self.populateSearchFromQuery();
+        self.bindKeypress();
+      });
+    };
+    
+    // create lunr.js search index specifying that we want to index the title and body fields of documents.
+    LunrSearch.prototype.createIndex = function() {
+      return lunr(function() {
+        this.field('title', { boost: 10 });
+        this.field('body');
+        this.ref('id');      
+      });
+    };
+    
+    // compile search results template
+    LunrSearch.prototype.compileTemplate = function($template) {      
+      var template = $template.text();
+      Mustache.parse(template);
+      return function (view, partials) {
+        return Mustache.render(template, view, partials);
+      };
+    };
+        
+    // load the search index data
+    LunrSearch.prototype.loadIndexData = function(callback) {
+      $.getJSON(this.indexDataUrl, callback);
+    };
+    
+    LunrSearch.prototype.populateIndex = function(data) {
+      var index = this.index;
+          
+      // format the raw json into a form that is simpler to work with
+      this.entries = $.map(data.entries, this.createEntry);
+
+      $.each(this.entries, function(idx, entry) {
+        index.add(entry);
+      });
+    };
+
+    LunrSearch.prototype.createEntry = function(raw, index) {
+      var entry = $.extend({
+        id: index + 1
+      }, raw);
+      
+      // include pub date for posts
+      if (raw.date) {
+        $.extend(entry, {
+          date: parseDate(raw.date),
+          pubdate: function() {
+            // HTML5 pubdate
+            return dateFormat(parseDate(raw.date), 'yyyy-mm-dd');
+          },
+          displaydate: function() {
+            // only for posts (e.g. Oct 12, 2012)
+            return dateFormat(parseDate(raw.date), 'mmm dd, yyyy');
+          }
+        });
+      }
+      
+      return entry;
+    };
+    
+    LunrSearch.prototype.bindKeypress = function() {
+      var self = this;
+      var oldValue = this.$elem.val();
+
+      this.$elem.bind('keyup', debounce(function() {
+        var newValue = self.$elem.val();
+        if (newValue !== oldValue) {
+          self.search(newValue);
+        }
+
+        oldValue = newValue;
+      }));
+    };
+    
+    LunrSearch.prototype.search = function(query) {
+      var entries = this.entries;
+      
+      if (query.length < 2) {
+        this.$results.hide();
+        this.$entries.empty();
+      } else {
+        var results = $.map(this.index.search(query), function(result) {
+          return $.grep(entries, function(entry) { return entry.id === parseInt(result.ref, 10); })[0];
+        });
+        
+        this.displayResults(results);
+      }
+    };
+    
+    LunrSearch.prototype.displayResults = function(entries) {
+      var $entries = this.$entries,
+        $results = this.$results;
+        
+      $entries.empty();
+      
+      if (entries.length === 0) {
+        $entries.append('<p>Nothing found.</p>');
+      } else {
+        $entries.append(this.template({entries: entries}));
+      }
+      
+      $results.show();
+    };
+    
+    // Populate the search input with 'q' querystring parameter if set
+    LunrSearch.prototype.populateSearchFromQuery = function() {
+      var uri = new URI(window.location.search.toString());
+      var queryString = uri.search(true);
+
+      if (queryString.hasOwnProperty('q')) {
+        this.$elem.val(queryString.q);
+        this.search(queryString.q.toString());
+      }
+    };
+    
+    return LunrSearch;
+  })();
+
+  $.fn.lunrSearch = function(options) {
+    // apply default options
+    options = $.extend({}, $.fn.lunrSearch.defaults, options);      
+
+    // create search object
+    new LunrSearch(this, options);
+    
+    return this;
+  };
+  
+  $.fn.lunrSearch.defaults = {
+    indexUrl  : '/search.json', // Url for the .json file containing search index source data (containing: title, url, date, body)
+    results   : '#search-results', // selector for containing search results element
+    entries   : '.entries', // selector for search entries containing element (contained within results above)
+    template  : '#search-results-template' // selector for Mustache.js template
+  };
+})(jQuery);
+{% endhighlight %}
+
+2. Add a script reference to the bottom of your nominated search page for `jquery.lunr.search.js` and each of the dependencies outlined above.
+
+{% highlight ruby linenos %}
+<script src="/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/URI.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
+{% endhighlight %}
+    
+Ideally you would concatenate, minify and optimise these six `.js` files using uglify/Google closure/etc to produce a single `search.min.js` file to reference (or use the pre-built script as described in 2.1 above).
+
+{% highlight ruby linenos %}
+<script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+{% endhighlight %}
+
+#### 4. Add a search form with a query input as shown.
+
+{% highlight ruby linenos %}
+section.top-bar-section
+  /! Right Nav Section
+  ul.right
+    li 
+      #search
+        form action="/search" method="get" 
+          input#search-query autocomplete="off" name="q" placeholder="Search" type="text" 
+{% endhighlight %}
+
+Search happens as you type, once at least three characters have been entered. 
+
+Providing the form action and specifying the get method allows the user to hit return/enter to also submit the search.
+Amend the form's action URL as necessary for the search page on your own site.
+
+#### 5. Add an element to contain the list of search result entries.
+
+{% highlight ruby linenos %}
+section#search-results
+  .row
+    .large-12.columns
+      h2 Search results
+      ul.entries.posts
+{% endhighlight %}
+
+This may be initially hidden as the plugin will show the element when searching.
+
+#### 6. Create a Mustache template to display the search results.
+(I'm using slim).
+
+{% highlight ruby linenos %}
+{% raw %}
+<script id="search-results-template" type="text/mustache">
+  | {{#entries}}
+    <li>
+      {{#date}}Post&nbsp;&raquo;&nbsp;<span><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time>&nbsp;&raquo;&nbsp;</span>{{/date}}{{^date}}Page&nbsp;&raquo;&nbsp;{{/date}}
+        <a href="{{url}}">{{title}}</a>
+    </li>
+  | {{/entries}} 
+</script>
+{% endraw %}
+{% endhighlight %}
+  
+*NB - I had to wrap this code in a raw tag to ensure the Mustache tags are not stripped out by Jekyll.
+
+The fields available to display are as follows.
+
+##### entries
+List of search result entries (mandatory).
+##### date
+Raw published date for posts, or null for pages. Can be used to toggle display of the following dates in the template: 
+{% highlight ruby linenos %}
+{% raw %}
+{{#date}}has a date{{/date}} 
+{{#!date}}no date{{/date}}
+{% endraw %}
+{% endhighlight %}
+##### pubdate
+Post published date, formatted as 'yyyy-mm-dd', to be used in a html5 element:
+{% highlight ruby linenos %}
+{% raw %}
+<time datetime="{{pubdate}}">
+{% endraw %}
+{% endhighlight %}
+##### displaydate
+Post published date, formatted as 'mmm dd, yyyy', such as Oct 12, 2012 (posts only)
+##### title
+Title of the Jekyll page or post.
+##### url
+URL of the Jekyll page or post that can be used to create a hyperlink 
+{% highlight ruby linenos %}
+{% raw %}
+<a href="{{url}}">{{title}}</a>
+{% endraw %}
+{% endhighlight %}
+
+#### 7. Configure the jQuery plugin for the search input field.
+I use Coffeescript.
+
+{% highlight ruby linenos %}
+$ ->
+  $("#search-query").lunrSearch
+    indexUrl: "/search.json"
+    results: "#search-results"
+    entries: ".entries"
+    template: "#search-results-template"
+{% endhighlight %}
+
+#### 8. To exclude pages from the search index.
+
+Add the following `exclude_from_search` setting to any page's YAML config. 
+
+{% highlight ruby linenos %}
+exclude_from_search: true
+{% endhighlight %}
+
+Or add an array of exclusions (as individual regular expressions) to the site's `_config.yml` file.
+
+{% highlight ruby linenos %}
+lunr_search:
+  excludes: [rss.xml, atom.xml]
+{% endhighlight %}
+
+#### 9. Stop Words
+
+You can also configure a stopwords file, and a minimum length of word to be included in the index file. This can be done by adding a search block to `_config.yml`. The default values are:
+
+{% highlight ruby linenos %}
+lunr_search:
+  stopwords: "stopwords.txt"
+  min_length: 3
+{% endhighlight %}
+
+The stopwords file must consist of one word per line, in lowercase, without punctuation.
+
+#### Requirements
+
+Requires the following gems:
+
+* json
+* nokogiri
