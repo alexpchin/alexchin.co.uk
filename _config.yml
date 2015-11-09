@@ -1,10 +1,17 @@
 source: ./src
+plugins: ./src/_plugins
 
 # Site settings
+timezone: United_Kingdom/London
+permalink: /:title
+url: http://www.alexchin.co.uk
+default_page_image: http://www.alexchin.co.uk/images/alex.png
+default_home_image: http://www.alexchin.co.uk/images/alex.png
+description: "Coffee & code. Start-up tips and coding tricks by Alex Chin."
 title: The chinternet with Alex Chin.
 email: alex@alexchin.co.uk
 description: > # 
-  aLeXCHin's home on the web.
+  Welcome to the Chinternet.lol
 
 # the subpath of your site, e.g. /blog/
 baseurl: "" 
