@@ -9,7 +9,8 @@ gem 'jekyll', '~> 2.5.3'
 # for Ruby/Rack applications.
 gem 'puma', '~> 2.14.0'
 
-gem 'json'
+gem 'json', '~> 1.8.3'
+gem 'nokogiri', '~> 1.6.6.2'
 
 # General gems
 gem 'rake', '~> 10.4.2'

@@ -140,6 +140,14 @@ section.post.news p {
   text-align: left;
 }
 
+.newest-thing > article {
+  text-align: center;
+}
+
+article {
+  text-align: left;
+}
+
 article h3 {
   text-transform: uppercase;
   font-weight: bold;
@@ -285,7 +293,6 @@ section.things article:nth-last-child(1):nth-child(even) {
  * individual articles and pages
  *******************************/
 
-
 h1.page-title {
   text-transform: uppercase;
   font-weight: normal;
@@ -375,6 +382,15 @@ footer {
 /*   background-color: green; */
 /* } */
 
+/*******************
+ * emojis
+ *******************/
+
+.emoji {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
 
 /***************************
  * mediaaaaaaaaaaaa query
