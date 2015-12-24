@@ -1,0 +1,19 @@
+{
+  "name": "alexpchin.github.io",
+  "version": "1.0.0",
+  "description": "alexchin.co.uk ============= [![Code Climate](https://codeclimate.com/github/alexpchin/alexpchin.github.io/badges/gpa.svg)](https://codeclimate.com/github/alexpchin/alexpchin.github.io) [![Test Coverage](https://codeclimate.com/github/alexpchin/alexpchin.github.io/badges/coverage.svg)](https://codeclimate.com/github/alexpchin/alexpchin.github.io)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexpchin/alexpchin.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexpchin/alexpchin.github.io/issues"
+  },
+  "homepage": "https://github.com/alexpchin/alexpchin.github.io#readme"
+}
