@@ -1,0 +1,21 @@
+{
+  "name": "alexpchin.github.io",
+  "homepage": "https://github.com/alexpchin/alexpchin.github.io",
+  "authors": [
+    "alexpchin <alex@alexchin.co.uk>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.5.0"
+  }
+}

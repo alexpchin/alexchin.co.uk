@@ -1,3 +1,4 @@
-# Blog
+alexchin.co.uk
+=============
 
-The default [wintersmith](https://github.com/jnordberg/wintersmith) template
+My personal website found at [alexchin.co.uk](http://www.alexchin.co.uk).
