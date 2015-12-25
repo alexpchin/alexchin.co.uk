@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.13.3",
     "path": "^0.12.7"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }
