@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/alexpchin/alexpchin.github.io#readme",
   "dependencies": {
+    "bower": "^1.7.1",
     "express": "^4.13.3",
     "path": "^0.12.7"
   }
