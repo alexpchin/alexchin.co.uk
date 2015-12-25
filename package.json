@@ -4,7 +4,7 @@
   "description": "Personal website for Alex Chin.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,5 @@
   "dependencies": {
     "express": "^4.13.3",
     "path": "^0.12.7"
-  },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }
