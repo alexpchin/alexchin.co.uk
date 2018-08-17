@@ -1,12 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Page } from '../common';
 
 const About = () => (
-  <Page>
+  <div className="container">
     <h1>About</h1>
     <Helmet title="About" />
-  </Page>
+  </div>
 );
 
 export { About };

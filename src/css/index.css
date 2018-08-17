@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'radikalregular';
+  src: url('../fonts/radikal.eot');
+  src: url('../fonts/radikal.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/radikal.woff2') format('woff2'),
+    url('../fonts/radikal.woff') format('woff'),
+    url('../fonts/radikal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'radikalregular', Helvetica, Arial, sans-serif;
+}
+
+/* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  /* flex: 1 0 auto; for IE11 */
+  flex: 1 0 auto;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-snapshot';
-import './index.css';
+// create-react-app doesn't handle scss files
+import 'bulma/css/bulma.css';
+import './css/index.css';
 import App from './App';
 
 // Add back in when https is added to heroku with paid dynos

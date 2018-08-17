@@ -4,8 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Home, About, NoMatch } from './components/static';
 import { Header, Main, Footer } from './components/common';
 
-import './App.css';
-
 const routes = [
   {
     title: 'Home',
@@ -24,7 +22,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        {/* .site is used for the sticky-footer */}
+        <div className="site">
           <Header routes={routes} />
           <Main routes={routes} NoMatch={NoMatch} />
           <Footer />

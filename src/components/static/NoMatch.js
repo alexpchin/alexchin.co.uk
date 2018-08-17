@@ -1,12 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Page } from '../common';
 
 const NoMatch = () => (
-  <Page>
+  <div className="container">
     <h1>404?!</h1>
     <Helmet title="404" />
-  </Page>
+  </div>
 );
 
 export { NoMatch };
