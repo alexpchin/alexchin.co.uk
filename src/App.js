@@ -1,18 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Helmet from 'react-helmet';
+
+// import logo from './logo.svg';
 import './App.css';
+
+import { Home, About, NoMatch } from './components/static';
+import { Footer } from './components/common';
+
+const title = 'Web Developer, Coding Instructor & Innovator';
+const routes = [
+  {
+    title: 'Home',
+    path: '/',
+    component: Home,
+    exact: true,
+  },
+  {
+    title: 'About',
+    path: '/about',
+    component: About,
+  },
+];
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Router>
+          <div>
+            <header>
+              <Helmet titleTemplate={`%s - ${title}`} />
+              <nav>
+                {routes.map((route, i) => (
+                  <Link key={i} to={route.path}>
+                    {route.title}
+                  </Link>
+                ))}
+              </nav>
+            </header>
+            <Switch>
+              {routes.map((route, i) => (
+                <Route key={i} {...route} />
+              ))}
+              <Route component={NoMatch} />
+            </Switch>
+            <Footer />
+          </div>
+        </Router>
       </div>
     );
   }
