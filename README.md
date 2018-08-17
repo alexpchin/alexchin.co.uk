@@ -7,3 +7,5 @@ https://medium.com/technical-credit/using-prettier-with-vs-code-and-create-react
 
 Influences taken from:
 https://medium.com/superhighfives/an-almost-static-stack-6df0a2791319
+
+Heroku buildpack added to deploy production build: https://github.com/mars/create-react-app-buildpack.git
