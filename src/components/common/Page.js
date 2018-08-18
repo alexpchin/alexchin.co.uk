@@ -1,8 +1,11 @@
 import styled from 'styled-components';
-import { darkGrey } from '../../constants/colors';
+import { white } from '../../constants/colors';
 
 const Page = styled.div`
-  background: ${darkGrey};
+  padding: calc(62px + 3rem) 3rem 3rem
+  color: ${white}
+  /* flex: 1 0 auto; for IE11 */
+  flex: 1 0 auto;
 `;
 
 export { Page };

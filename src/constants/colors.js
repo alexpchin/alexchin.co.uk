@@ -19,4 +19,4 @@ export const black = '#111111';
 export const transparent = 'transparent';
 
 /* Site-specific Colors */
-export const darkGrey = '#16181c';
+export const brightBlue = '#1500ff';

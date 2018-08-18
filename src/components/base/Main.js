@@ -2,12 +2,12 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Page } from '../common';
 
-const Main = ({ routes, NoMatch }) => {
+const Main = ({ location, routes, NoMatch }) => {
   return (
-    <Page className="site-content">
+    <Page>
       <Switch>
         {routes.map((route, i) => (
-          <Route key={i} {...route} />
+          <Route exact key={i} {...route} />
         ))}
         <Route component={NoMatch} />
       </Switch>

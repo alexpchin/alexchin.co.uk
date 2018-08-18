@@ -1,12 +1,11 @@
-// import styled from 'styled-components';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { blue, white } from '../../constants/colors';
+import { white } from '../../constants/colors';
 import { Section } from '../common';
 
 const Intro = Section.extend`
   color: ${white};
-  text-align: center;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,10 +17,6 @@ const Intro = Section.extend`
   }
 `;
 
-const Skills = Section.extend`
-  background: ${blue};
-`;
-
 const Home = () => (
   <div>
     <Intro>
@@ -30,7 +25,6 @@ const Home = () => (
         <h2>Web and mobile application development services</h2>
       </div>
     </Intro>
-    <Skills />
     <Helmet title="Home" />
   </div>
 );

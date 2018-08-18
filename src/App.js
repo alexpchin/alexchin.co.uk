@@ -1,12 +1,14 @@
+import styled from 'styled-components';
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Home, About, Teaching, Contact, NoMatch } from './components/pages';
 import { Header, Main, Footer } from './components/base';
+import { brightBlue } from './constants/colors';
 
 const routes = [
   {
-    title: 'Work',
+    title: 'Home',
     path: '/',
     component: Home,
     exact: true,
@@ -28,6 +30,14 @@ const routes = [
   },
 ];
 
+const Site = styled.div`
+  // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: ${brightBlue};
+`;
+
 class App extends Component {
   state = {
     open: false,
@@ -36,12 +46,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {/* .site is used for the sticky-footer */}
-        <div className="site">
+        <Site>
           <Header routes={routes} state={this.state} />
           <Main routes={routes} NoMatch={NoMatch} />
           <Footer />
-        </div>
+        </Site>
       </Router>
     );
   }
