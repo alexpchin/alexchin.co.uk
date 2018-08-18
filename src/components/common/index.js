@@ -7,5 +7,6 @@ export * from './Heading';
 export * from './Card';
 export * from './Navbar';
 export * from './NavbarLink';
+export * from './NavbarALink';
 export * from './NavbarMenu';
 export * from './NavbarBurger';

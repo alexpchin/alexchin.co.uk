@@ -1,10 +1,22 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Home, About, Teaching, Contact, NoMatch } from './components/pages';
 import { Header, Main } from './components/base';
+import { Home, Teaching, About, Contact, NoMatch } from './components/pages';
 
-const routes = [
+// Font-awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+// import {  } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFacebookSquare,
+  faTwitterSquare,
+  faGithubSquare,
+} from '@fortawesome/free-brands-svg-icons';
+
+// Add the icons you need in the project
+library.add(faFacebookSquare, faTwitterSquare, faGithubSquare);
+
+export const routes = [
   {
     title: 'Home',
     path: '/',
@@ -28,6 +40,21 @@ const routes = [
   },
 ];
 
+export const socials = [
+  {
+    icon: 'facebook-square',
+    path: 'https://www.facebook.com/alexpchin',
+  },
+  {
+    icon: 'twitter-square',
+    path: 'https://www.twitter.com/alexpchin',
+  },
+  {
+    icon: 'github-square',
+    path: 'https://www.github.com/alexpchin',
+  },
+];
+
 const Site = styled.div`
   // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
   display: flex;
@@ -44,7 +71,7 @@ class App extends Component {
     return (
       <Router>
         <Site>
-          <Header routes={routes} state={this.state} />
+          <Header routes={routes} socials={socials} state={this.state} />
           <Main routes={routes} NoMatch={NoMatch} />
         </Site>
       </Router>

@@ -9,43 +9,53 @@ const chunk = (r, j) =>
 const Recommendations = ({ data, col }) => {
   // convert the students into an array of rows
   const rows = chunk(data, col);
-  return rows.map((row, i) => {
-    return (
-      <Columns key={i}>
-        {row.map((column, i) => {
-          return (
-            <Columns.Column key={i}>
-              <Card>
-                <Card.Content>
-                  <Media>
-                    <Media.Item renderAs="figure" position="left">
-                      <Image
-                        renderas="p"
-                        size={64}
-                        alt="64x64"
-                        src={column.image}
-                      />
-                    </Media.Item>
-                    <Media.Item>
-                      <Heading size={4}>{column.name}</Heading>
-                      <Heading subtitle size={6}>
-                        <time>{column.date}</time>
-                      </Heading>
-                    </Media.Item>
-                  </Media>
-                  <Content>
-                    {column.quote}. <a href="#1">#css</a>{' '}
-                    <a href="#2">#responsive</a>
-                    <br />
-                  </Content>
-                </Card.Content>
-              </Card>
-            </Columns.Column>
-          );
-        })}
-      </Columns>
-    );
-  });
+  return (
+    <div>
+      <Heading size={3} renderAs="h3">
+        Recommendations
+      </Heading>
+      {rows.map((row, i) => {
+        return (
+          <Columns key={i}>
+            {row.map((column, i) => {
+              return (
+                <Columns.Column key={i}>
+                  <Card>
+                    <Card.Content>
+                      <Media>
+                        <Media.Item renderAs="figure" position="left">
+                          <Image
+                            renderas="p"
+                            size={64}
+                            alt="64x64"
+                            src={column.image}
+                          />
+                        </Media.Item>
+                        <Media.Item>
+                          <Heading size={4} renderAs="p">
+                            {column.name}
+                          </Heading>
+                          <Heading subtitle size={6}>
+                            <time>{column.date}</time>
+                          </Heading>
+                        </Media.Item>
+                      </Media>
+                      <Content>
+                        {column.quote}. <a href="#1">#css</a>{' '}
+                        <a href="#2">#responsive</a>
+                        <br />
+                      </Content>
+                    </Card.Content>
+                  </Card>
+                </Columns.Column>
+              );
+            })}
+          </Columns>
+        );
+      })}
+      ;
+    </div>
+  );
 };
 
 export { Recommendations };

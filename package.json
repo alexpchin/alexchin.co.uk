@@ -7,17 +7,21 @@
   "author": "alexpchin <alex@alexchin.co.uk>",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
-  },
   "scripts": {
     "precommit": "pretty-quick --staged",
     "start": "react-scripts start",
     "build": "react-scripts build && react-snapshot && react-snapshot-sitemap --output-domain http://www.alexchin.co.uk",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/free-brands-svg-icons": "^5.2.0",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "@fortawesome/react-fontawesome": "^0.1.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
   },
   "devDependencies": {
     "bulma": "^0.7.1",

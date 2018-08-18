@@ -1,6 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Navbar, NavbarLink, NavbarMenu, NavbarBurger } from '../common';
+import {
+  Navbar,
+  NavbarLink,
+  NavbarALink,
+  NavbarMenu,
+  NavbarBurger,
+} from '../common';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // This is the second part of the title, i.e. Home - ↓
 const title = 'Web & App Developer, Teacher & Entrepreneur';
@@ -45,6 +52,18 @@ class Header extends React.Component {
                 >
                   {route.title}
                 </NavbarLink>
+              ))}
+            </Navbar.Container>
+            <Navbar.Container position="end">
+              {this.props.socials.map((social, i) => (
+                <NavbarALink
+                  key={i}
+                  href={social.path}
+                  target="_blank"
+                  className="navbar-item"
+                >
+                  <FontAwesomeIcon icon={['fab', `${social.icon}`]} size="lg" />
+                </NavbarALink>
               ))}
             </Navbar.Container>
           </NavbarMenu>
