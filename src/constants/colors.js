@@ -16,6 +16,7 @@ export const white = '#FFFFFF';
 export const silver = '#DDDDDD';
 export const gray = '#AAAAAA';
 export const black = '#111111';
+export const transparent = 'transparent';
 
 /* Site-specific Colors */
 export const darkGrey = '#16181c';

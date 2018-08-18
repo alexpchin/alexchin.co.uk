@@ -1248,7 +1248,7 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-bulma@^0.7.1:
+bulma@0.7.1, bulma@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.1.tgz#73c2e3b2930c90cc272029cbd19918b493fca486"
 
@@ -1439,6 +1439,10 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
 clean-css@4.1.x:
   version "4.1.11"
@@ -3428,6 +3432,10 @@ inquirer@3.3.0, inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
+
+install@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.12.1.tgz#38b2dd4489330e9af3eeaba93b9e3fc77dee7872"
 
 internal-ip@1.2.0:
   version "1.2.0"
@@ -5620,6 +5628,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-bulma-components@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-bulma-components/-/react-bulma-components-2.0.0.tgz#7a826cd13c8f4637dd7139f75446b3f2f65927c2"
+  dependencies:
+    bulma "0.7.1"
+    classnames "2.2.6"
 
 react-dev-utils@^5.0.1:
   version "5.0.1"

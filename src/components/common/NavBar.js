@@ -1,8 +1,13 @@
 import styled from 'styled-components';
-import { darkGrey } from '../../constants/colors';
+import { Navbar as BulmaNavbar } from 'react-bulma-components';
+import { transparent, black } from '../../constants/colors';
 
-const NavBar = styled.nav`
-  background: ${darkGrey};
+const Navbar = styled(BulmaNavbar)`
+  background: ${transparent};
+  &.is-active {
+    background: ${black};
+    height: 100%;
+  }
 `;
 
-export { NavBar };
+export { Navbar };
