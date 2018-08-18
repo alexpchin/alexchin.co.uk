@@ -13,3 +13,5 @@ Heroku buildpack added to deploy production build: https://github.com/mars/creat
 Static version of the site generated using react-snapshot.
 
 Sitemap building with react-snapshot-sitemap.
+
+Ideas from: http://animate.mhaagens.me/idontexist

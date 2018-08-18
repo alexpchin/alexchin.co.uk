@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container } from 'react-bulma-components';
-import { white } from '../../constants/colors';
+import { white } from '../../data';
 import img from '../../images/dancing-tomato.gif';
 
 const StyledNoMatch = styled(Container)`

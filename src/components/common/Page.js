@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { white } from '../../constants/colors';
+import { white } from '../../data';
 
 const Page = styled.div`
   padding: 1rem 12px;

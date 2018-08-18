@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Navbar } from 'react-bulma-components';
-import { white, black } from '../../constants/colors';
+import { white, black } from '../../data';
 
 const NavbarMenu = styled(Navbar.Menu)`
   color: ${white};
