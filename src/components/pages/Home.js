@@ -9,19 +9,14 @@ const Intro = Section.extend`
   display: flex;
   align-items: center;
   justify-content: center;
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
 `;
 
 const Home = () => (
   <div>
     <Intro>
       <div>
-        <h1>Apps for All Screens</h1>
+        <p>Hola</p>
+        <h1>I make apps and things.</h1>
         <h2>Web and mobile application development services</h2>
       </div>
     </Intro>

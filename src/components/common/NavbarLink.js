@@ -1,9 +1,12 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { white } from '../../constants/colors';
 
-const NavbarLink = styled(Link)`
+const NavbarLink = styled(NavLink)`
   color: ${white};
+  &.active {
+    text-decoration: line-through;
+  }
 `;
 
 export { NavbarLink };

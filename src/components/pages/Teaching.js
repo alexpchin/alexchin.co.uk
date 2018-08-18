@@ -1,13 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import {
-  Card,
-  Columns,
-  Media,
-  Image,
-  Heading,
-  Content,
-} from 'react-bulma-components';
+import { Card, Columns, Media, Image, Content } from 'react-bulma-components';
+import { Heading } from '../common';
 
 const students = [
   {
@@ -49,13 +43,13 @@ const Teaching = () => (
     <Columns>
       {students.map((student, i) => {
         return (
-          <Columns.Column>
+          <Columns.Column key={i}>
             <Card>
               <Card.Content>
                 <Media>
                   <Media.Item renderAs="figure" position="left">
                     <Image
-                      renderAs="p"
+                      renderas="p"
                       size={64}
                       alt="64x64"
                       src="http://bulma.io/images/placeholders/128x128.png"

@@ -1,12 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Container } from 'react-bulma-components';
+import { Heading } from '../common';
 
 const Contact = () => (
-  <Container>
-    <h1>Contact</h1>
+  <div>
+    <Heading size={2}>Contact</Heading>
     <Helmet title="Contact" />
-  </Container>
+  </div>
 );
 
 export { Contact };

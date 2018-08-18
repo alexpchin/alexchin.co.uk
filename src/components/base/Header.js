@@ -37,7 +37,12 @@ class Header extends React.Component {
             <Navbar.Container position="start">
               {/* At somepoint try to remove className in favour of Navbar.Item */}
               {this.props.routes.map((route, i) => (
-                <NavbarLink key={i} to={route.path} className="navbar-item">
+                <NavbarLink
+                  exact
+                  key={i}
+                  to={route.path}
+                  className="navbar-item"
+                >
                   {route.title}
                 </NavbarLink>
               ))}

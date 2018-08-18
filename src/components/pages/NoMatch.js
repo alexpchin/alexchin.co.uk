@@ -12,6 +12,8 @@ const StyledNoMatch = styled(Container)`
   background-size: cover;
   justify-content: center;
   align-items: center;
+  align-content: center;
+  background-position: 50%;
 
   h1 {
     color: ${white};

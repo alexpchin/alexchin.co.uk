@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-
 import { Home, About, Teaching, Contact, NoMatch } from './components/pages';
-import { Header, Main, Footer } from './components/base';
-import { brightBlue } from './constants/colors';
+import { Header, Main } from './components/base';
 
 const routes = [
   {
@@ -35,7 +33,6 @@ const Site = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: ${brightBlue};
 `;
 
 class App extends Component {
@@ -49,7 +46,6 @@ class App extends Component {
         <Site>
           <Header routes={routes} state={this.state} />
           <Main routes={routes} NoMatch={NoMatch} />
-          <Footer />
         </Site>
       </Router>
     );

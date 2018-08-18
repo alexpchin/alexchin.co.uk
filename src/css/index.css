@@ -15,24 +15,14 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+  background: #1500ff;
 }
 
 /* Fix fo have a transparent menu at the top of the page */
-html {
+/* html {
   margin-top: -3.5rem;
-}
+} */
 
 body {
   font-family: 'radikalregular', Helvetica, Arial, sans-serif;
-}
-
-/* TRANSITIONS */
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 250ms ease-in;
 }

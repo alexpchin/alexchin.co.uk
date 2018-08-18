@@ -7,6 +7,7 @@ const NavbarMenu = styled(Navbar.Menu)`
   &.is-active {
     background: ${black};
     box-shadow: none;
+    text-align: center;
   }
 `;
 

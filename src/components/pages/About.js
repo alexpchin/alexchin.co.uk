@@ -1,23 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Section } from '../common';
-import { Container } from 'react-bulma-components';
-import { white } from '../../constants/colors';
-
-const Intro = Section.extend`
-  color: ${white};
-  h1 {
-    line-height: 10rem;
-  }
-`;
+import { Heading } from '../common';
 
 const About = () => (
   <div>
-    <Intro>
-      <Container>
-        <h1>About</h1>
-      </Container>
-    </Intro>
+    <Heading size={2}>About</Heading>
     <Helmet title="About" />
   </div>
 );
