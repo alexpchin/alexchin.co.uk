@@ -1,6 +1,9 @@
 export * from './Page';
-export * from './Section';
 export * from './Recommendations';
+export * from './Projects';
+export * from './Skills';
+export * from './HorizontalColumns';
+export * from './VerticallyAlignedColumn';
 
 // Bulma overrides
 export * from './Heading';

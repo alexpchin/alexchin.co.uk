@@ -1,19 +1,22 @@
+import styled from 'styled-components';
 import React from 'react';
 import { Columns, Media, Image, Content } from 'react-bulma-components';
 import { Heading, Card } from '../common';
 import { Fade } from 'react-reveal';
+import { chunk } from '../../helpers';
 
-// Function to split array into chunks, r is array j is chunk size
-const chunk = (r, j) =>
-  r.reduce((a, b, i, g) => (!(i % j) ? a.concat([g.slice(i, i + j)]) : a), []);
+const Wrapper = styled.div`
+  max-width: 80vw;
+  margin: 0 auto;
+`;
 
-const Recommendations = ({ data, col }) => {
+const Recommendations = ({ heading, data, col }) => {
   // convert the students into an array of rows
   const rows = chunk(data, col);
   return (
-    <div>
+    <Wrapper>
       <Heading size={3} renderAs="h3">
-        Recommendations
+        {heading}
       </Heading>
       {rows.map((row, i) => {
         return (
@@ -29,7 +32,7 @@ const Recommendations = ({ data, col }) => {
                             <Image
                               renderas="p"
                               size={64}
-                              alt="64x64"
+                              alt={'An image of ' + column.name}
                               src={column.image}
                             />
                           </Media.Item>
@@ -37,16 +40,12 @@ const Recommendations = ({ data, col }) => {
                             <Heading size={4} renderAs="p">
                               {column.name}
                             </Heading>
-                            <Heading subtitle size={6}>
-                              <time>{column.date}</time>
+                            <Heading subtitle size={6} renderAs="p">
+                              {column.date}
                             </Heading>
                           </Media.Item>
                         </Media>
-                        <Content>
-                          {column.quote}. <a href="#1">#css</a>{' '}
-                          <a href="#2">#responsive</a>
-                          <br />
-                        </Content>
+                        <Content>{column.quote}</Content>
                       </Card.Content>
                     </Card>
                   </Columns.Column>
@@ -56,7 +55,7 @@ const Recommendations = ({ data, col }) => {
           </Columns>
         );
       })}
-    </div>
+    </Wrapper>
   );
 };
 

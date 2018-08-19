@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Heading, Recommendations, Section } from '../common';
-import { recommendations } from '../../data';
+import { Heading, Recommendations, Projects } from '../common';
+import { recommendations, projects } from '../../data';
 
-import { Fade, Slide } from 'react-reveal';
-import { white, lightBlue, purpleBlue, blue } from '../../data';
+import { Slide } from 'react-reveal';
+import { white, blue, lightGrey, purpleBlue, black } from '../../data';
 
-const Intro = Section.extend`
+const Intro = styled.section`
   color: ${white};
+  background: ${blue};
   text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  margin-bottom: 20vh;
+  height: 100vh;
+  padding-bottom: 20vh;
 `;
 
 const MainHeader = Heading.extend`
@@ -27,25 +28,20 @@ const MainHeader = Heading.extend`
   background-repeat: repeat-x;
   background-size: 1px 15px;
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 `;
 
-const Projects = Section.extend`
-  margin: 0 3rem;
-  background: ${lightBlue};
-  transform: rotate(20deg);
-  margin-bottom: 3rem;
-  padding: 3rem;
-  h2 {
-    color: ${blue};
+const WorkRecommendations = styled.section`
+  min-height: 100vh;
+  background: ${lightGrey};
+  padding: 3rem 0;
+
+  p,
+  h3,
+  .card {
+    color: ${black} !important;
+    outline-color: ${black};
   }
-`;
-
-const Project = styled.div`
-  width: 100%;
-  border: 1px solid ${blue};
-  min-height: 100px;
-  background: ${white};
 `;
 
 const Home = () => (
@@ -54,28 +50,22 @@ const Home = () => (
     <Intro>
       <div>
         <Slide bottom cascade>
-          <p>Hola</p>
-          <MainHeader size={1}>I make apps and things.</MainHeader>
+          <p>Hola,</p>
+          <MainHeader size={1}>"I make apps and things"</MainHeader>
           <Heading size={3} renderAs="h2">
-            Web and mobile application development services
+            Me ← Digital entrepreneur &amp; teacher.
           </Heading>
         </Slide>
       </div>
     </Intro>
-    <Fade cascade>
-      <Projects>
-        <Heading size={3} renderAs="h2">
-          Recent Work
-        </Heading>
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-      </Projects>
-    </Fade>
-    <Recommendations data={recommendations} col={1} />
+    <Projects data={projects} />
+    <WorkRecommendations>
+      <Recommendations
+        heading="Recommendations"
+        data={recommendations}
+        col={1}
+      />
+    </WorkRecommendations>
   </div>
 );
 

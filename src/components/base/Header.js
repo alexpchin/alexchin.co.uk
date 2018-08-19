@@ -33,7 +33,12 @@ class Header extends React.Component {
     return (
       <header>
         <Helmet titleTemplate={`%s - ${title}`} />
-        <Navbar fixed="top" className={this.state.open ? 'is-active' : null}>
+        {/* Removed fixed="top" so that .has-navbar-fixed-top is not added to html */}
+        <Navbar
+          className={
+            this.state.open ? 'is-active is-fixed-top' : 'is-fixed-top'
+          }
+        >
           <Navbar.Brand>
             <NavbarBurger
               className={this.state.open ? 'is-active' : null}

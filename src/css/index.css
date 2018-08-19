@@ -15,14 +15,5 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background: #1500ff;
-}
-
-/* Fix fo have a transparent menu at the top of the page */
-/* html {
-  margin-top: -3.5rem;
-} */
-
-body {
   font-family: 'radikalregular', Helvetica, Arial, sans-serif;
 }

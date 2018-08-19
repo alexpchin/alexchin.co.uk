@@ -1,4 +1,4 @@
-import nina from '../images/recommendations/nina.jpeg';
+// import nina from '../images/recommendations/nina.jpeg';
 import dom from '../images/recommendations/dom.jpeg';
 import adam from '../images/recommendations/adam.jpeg';
 import oli from '../images/recommendations/oli-woodley.jpeg';
@@ -25,13 +25,13 @@ export const recommendations = [
     image: damien,
     date: '21 Septeber 2010',
   },
-  {
-    name: 'Nina Kelly',
-    quote:
-      'He is an exacting client who is incredibly motivated and constantly researching how to improve projects. His creative flair and charisma ensure that working with him is an enjoyable experience and an opportunity to share knowledge.',
-    image: nina,
-    date: '1 April 2012',
-  },
+  // {
+  //   name: 'Nina Kelly',
+  //   quote:
+  //     'He is an exacting client who is incredibly motivated and constantly researching how to improve projects. His creative flair and charisma ensure that working with him is an enjoyable experience and an opportunity to share knowledge.',
+  //   image: nina,
+  //   date: '1 April 2012',
+  // },
   {
     name: 'Dom Donnelly',
     quote:
@@ -51,13 +51,6 @@ export const recommendations = [
     quote:
       'Alex is highly motivated and creative and was a pleasure to work with him on several projects - and hopefully we will work on more together in the future!',
     image: oli,
-    date: '15 March 2012',
-  },
-  {
-    name: 'Ros Horner',
-    quote:
-      "Alex is like the secret love child of Mark Zuckerberg and Alexa Chung. (Hmm, they're too young, maybe Steve Jobs and Debbie Harry?) Well, either way he's the sort of genius who teaches himself PHP for fun, and manages to soften his full geekiness with his effortlessly stylish, and confident outward appearance. I'm looking forward to saying I worked with Alex before he was famous, and my friends saying \"Why the hell didn't you get paid in shares?\"",
-    image: ros,
     date: '15 March 2012',
   },
   {

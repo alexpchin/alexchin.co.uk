@@ -6,7 +6,7 @@ import { Home, Teaching, About, Contact, NoMatch } from './components/pages';
 
 // Font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-// import {  } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebookSquare,
   faTwitterSquare,
@@ -14,11 +14,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // Add the icons you need in the project
-library.add(faFacebookSquare, faTwitterSquare, faGithubSquare);
+library.add(faFacebookSquare, faTwitterSquare, faGithubSquare, faHeart);
 
 export const routes = [
   {
-    title: 'Home',
+    title: 'Work',
     path: '/',
     component: Home,
     exact: true,

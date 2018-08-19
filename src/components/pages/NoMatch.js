@@ -3,16 +3,16 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Container } from 'react-bulma-components';
 import { white } from '../../data';
-import img from '../../images/dancing-tomato.gif';
+import img from '../../images/backgrounds/dancing-tomato.gif';
 
 const StyledNoMatch = styled(Container)`
   background: url(${img}) no-repeat;
   height: 100vh;
   display: flex;
-  background-size: cover;
   justify-content: center;
   align-items: center;
   align-content: center;
+  background-size: cover;
   background-position: 50%;
 
   h1 {
