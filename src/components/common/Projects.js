@@ -3,17 +3,17 @@ import React from 'react';
 import { Columns, Content, Card } from 'react-bulma-components';
 import { Heading, HorizontalColumns } from '.';
 import { Fade } from 'react-reveal';
-
-import { white, black, red } from '../../data';
+import { white, black } from '../../data';
 
 const ProjectsSection = styled.section`
   background: ${white};
   padding: 3rem 0;
   min-height: 50vh;
+  color: ${black};
   h2 {
     color: ${black};
     text-align: center;
-    padding: 0 0 3rem 0;
+    padding: 0 0 1rem;
   }
 `;
 
@@ -39,6 +39,11 @@ const Project = styled(Columns.Column)`
   }
 `;
 
+const Description = styled.p`
+  padding: 0 1rem 1rem;
+  text-align: center;
+`;
+
 const Projects = ({ data }) => {
   return (
     <ProjectsSection>
@@ -46,6 +51,10 @@ const Projects = ({ data }) => {
         <Heading size={3} renderAs="h2">
           Recent Projects
         </Heading>
+        <Description>
+          I work on projects from concept to creation and advise on technology
+          startups.
+        </Description>
         <HorizontalColumns>
           {data.map((project, i) => {
             return (

@@ -29,5 +29,4 @@ export const skills = [
   'devicon-less-plain-wordmark colored',
   'devicon-swift-plain-wordmark colored',
   'devicon-typescript-plain colored',
-  'devicon-visualstudio-plain-wordmark colored',
 ];

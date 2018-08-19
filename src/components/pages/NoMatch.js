@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container } from 'react-bulma-components';
-import { white } from '../../data';
+import { white, blue } from '../../data';
 import img from '../../images/backgrounds/dancing-tomato.gif';
 
 const StyledNoMatch = styled(Container)`
   background: url(${img}) no-repeat;
+  background: ${blue};
   height: 100vh;
   display: flex;
   justify-content: center;

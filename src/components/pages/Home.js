@@ -1,21 +1,28 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Heading, Recommendations, Projects } from '../common';
+import { Heading, Recommendations, Projects, Heart } from '../common';
 import { recommendations, projects } from '../../data';
-
 import { Slide } from 'react-reveal';
-import { white, blue, lightGrey, purpleBlue, black } from '../../data';
+import { white, blue, lightGrey, purpleBlue, black, red } from '../../data';
+import img from '../../images/backgrounds/smiling.png';
 
 const Intro = styled.section`
   color: ${white};
   background: ${blue};
   text-align: left;
+  height: 100vh;
+`;
+
+const IntroInner = styled.div`
+  background: ${black};
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding-bottom: 20vh;
+  pointer-events: none;
+  z-index: 2;
+  position: relative; // IMPORTANT
 `;
 
 const MainHeader = Heading.extend`
@@ -26,7 +33,7 @@ const MainHeader = Heading.extend`
   );
   background-position: 0 0.84em;
   background-repeat: repeat-x;
-  background-size: 1px 15px;
+  background-size: 1px 10px;
   display: inline-block;
   margin: 1rem 0;
 `;
@@ -44,29 +51,69 @@ const WorkRecommendations = styled.section`
   }
 `;
 
-const Home = () => (
-  <div>
-    <Helmet title="Home" />
-    <Intro>
+const Slider = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+`;
+
+class Home extends Component {
+  componentDidMount() {
+    this.createParticles();
+  }
+
+  createParticles() {
+    const ParticleSlider = window.ParticleSlider;
+    var ps = new ParticleSlider({
+      ptlGap: 1,
+      mouseForce: 100,
+      // monochrome: true,
+      color: red,
+      ptlSize: 2,
+    });
+    var ptl = new ps.Particle(ps);
+    ptl.ttl = 20;
+  }
+
+  render() {
+    return (
       <div>
-        <Slide bottom cascade>
-          <p>Hola,</p>
-          <MainHeader size={1}>"I make apps and things"</MainHeader>
-          <Heading size={3} renderAs="h2">
-            Me ← Digital entrepreneur &amp; teacher.
-          </Heading>
-        </Slide>
+        <Helmet title="Home" />
+        <Intro>
+          <Slider id="particle-slider">
+            <div className="slides">
+              <div className="slide" data-src={img} />
+            </div>
+            <canvas className="draw" />
+          </Slider>
+        </Intro>
+        <IntroInner>
+          <div>
+            <Slide bottom cascade>
+              <p>Hola,</p>
+              <MainHeader size={1}>
+                "I <Heart icon="heart" />
+                making things"
+              </MainHeader>
+              <Heading size={3} renderAs="h2">
+                Me ← Digital entrepreneur &amp; teacher.
+              </Heading>
+            </Slide>
+          </div>
+        </IntroInner>
+        <Projects data={projects} />
+        <WorkRecommendations>
+          <Recommendations
+            heading="Recommendations"
+            data={recommendations}
+            col={1}
+          />
+        </WorkRecommendations>
       </div>
-    </Intro>
-    <Projects data={projects} />
-    <WorkRecommendations>
-      <Recommendations
-        heading="Recommendations"
-        data={recommendations}
-        col={1}
-      />
-    </WorkRecommendations>
-  </div>
-);
+    );
+  }
+}
 
 export { Home };

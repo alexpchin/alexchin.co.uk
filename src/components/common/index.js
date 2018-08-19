@@ -4,6 +4,7 @@ export * from './Projects';
 export * from './Skills';
 export * from './HorizontalColumns';
 export * from './VerticallyAlignedColumn';
+export * from './Heart';
 
 // Bulma overrides
 export * from './Heading';

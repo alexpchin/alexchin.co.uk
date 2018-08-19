@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { VerticallyAlignedColumn } from '../common';
-import { Container, Columns, Image } from 'react-bulma-components';
+import { Container, Columns } from 'react-bulma-components';
 import { Slide, Fade } from 'react-reveal';
 import { orange } from '../../data';
 

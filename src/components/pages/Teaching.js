@@ -6,12 +6,12 @@ import {
   Skills,
   Recommendations,
   VerticallyAlignedColumn,
+  Heart,
 } from '../common';
 import { students, skills } from '../../data';
 import { Slide } from 'react-reveal';
 import { Columns, Container } from 'react-bulma-components';
-import { red, blue } from '../../data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { blue } from '../../data';
 import img from '../../images/backgrounds/teaching.gif';
 
 const Intro = styled.section`
@@ -27,10 +27,6 @@ const Intro = styled.section`
   @media (max-width: 1087px) {
     padding: 0 3rem;
   }
-`;
-
-const Heart = styled(FontAwesomeIcon)`
-  color: ${red};
 `;
 
 const StudentRecommendations = styled.section`
