@@ -11,13 +11,13 @@ import {
 import { students, skills } from '../../data';
 import { Slide } from 'react-reveal';
 import { Columns, Container } from 'react-bulma-components';
-import { blue, white } from '../../data';
+import { blue, white, black } from '../../data';
 import img from '../../images/backgrounds/teaching.gif';
 
 const Intro = styled.section`
   height: 100vh;
   padding: 3rem 0;
-  background: url(${img}) no-repeat;
+  background: url(${img}) ${black} no-repeat;
   display: flex;
   background-size: cover;
   justify-content: center;
