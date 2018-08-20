@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Heading, Recommendations, Projects, Heart } from '../common';
+import { Heading, Recommendations, Projects } from '../common';
 import {
   recommendations,
   projects,
@@ -32,6 +32,7 @@ const Slogan = styled.div`
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  position: relative;
   h1 {
     display: inline-block;
     margin: 1rem 0;
@@ -103,12 +104,9 @@ class Home extends Component {
         <Slogan>
           <div>
             <Slide bottom cascade>
-              <p>Hola,</p>
+              <p>Namaste,</p>
               <Slide left>
-                <Heading size={1}>
-                  "I <Heart icon="heart" />
-                  making things"
-                </Heading>
+                <Heading size={1}>I build things</Heading>
               </Slide>
               <Slide right>
                 <Heading size={3} renderAs="h2">

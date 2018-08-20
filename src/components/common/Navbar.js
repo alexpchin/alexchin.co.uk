@@ -9,7 +9,7 @@ const Navbar = styled(BulmaNavbar)`
     height: 100vh;
     position: fixed;
     right: 0;
-    width: 80vw;
+    width: 100vw;
   }
   .navbar-menu {
     &.is-active {

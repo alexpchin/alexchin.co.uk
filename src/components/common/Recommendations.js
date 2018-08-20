@@ -15,7 +15,7 @@ const Recommendations = ({ heading, data, col }) => {
   const rows = chunk(data, col);
   return (
     <Wrapper>
-      <Heading size={3} renderAs="h3">
+      <Heading size={4} renderAs="h3">
         {heading}
       </Heading>
       {rows.map((row, i) => {

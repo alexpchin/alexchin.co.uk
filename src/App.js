@@ -7,7 +7,7 @@ import { socials } from './data';
 
 // Font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faWrench } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebookSquare,
   faTwitterSquare,

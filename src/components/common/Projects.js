@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import { Columns, Content, Card } from 'react-bulma-components';
 import { Heading, HorizontalColumns } from '.';
-import { Fade } from 'react-reveal';
+import { Fade, Slide } from 'react-reveal';
 import { white, black } from '../../data';
 
 const ProjectsSection = styled.section`
@@ -35,7 +35,7 @@ const Project = styled(Columns.Column)`
   }
   .card {
     box-shadow: none;
-    outline: 2px solid ${black};
+    outline: 1px solid ${black};
     .card-image {
       max-height: 320px;
       padding: 0;
@@ -65,7 +65,7 @@ const Projects = ({ data }) => {
         <HorizontalColumns>
           {data.map((project, i) => {
             return (
-              <Fade key={i}>
+              <Slide bottom key={i}>
                 <Project>
                   <Card>
                     <Card.Image src={project.image} />
@@ -82,7 +82,7 @@ const Projects = ({ data }) => {
                     </Card.Content>
                   </Card>
                 </Project>
-              </Fade>
+              </Slide>
             );
           })}
         </HorizontalColumns>

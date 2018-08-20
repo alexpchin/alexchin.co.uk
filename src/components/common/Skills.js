@@ -43,7 +43,7 @@ const Skills = ({ data, col }) => {
           <Heading size={3} renderAs="h3">
             Skills
           </Heading>
-          <p>A bad workman never blames his tools...</p>
+          <p>My technology toolbox.</p>
           <div>
             {data.map((skill, i) => (
               <i key={i} className={skill} />
