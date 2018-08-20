@@ -23,8 +23,8 @@ const Recommendations = ({ heading, data, col }) => {
           <Columns key={i}>
             {row.map((column, i) => {
               return (
-                <Fade key={i}>
-                  <Columns.Column>
+                <Columns.Column key={i}>
+                  <Fade>
                     <Card>
                       <Card.Content>
                         <Media>
@@ -48,8 +48,8 @@ const Recommendations = ({ heading, data, col }) => {
                         <Content>{column.quote}</Content>
                       </Card.Content>
                     </Card>
-                  </Columns.Column>
-                </Fade>
+                  </Fade>
+                </Columns.Column>
               );
             })}
           </Columns>

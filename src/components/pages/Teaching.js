@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import {
   Heading,
@@ -35,46 +35,54 @@ const StudentRecommendations = styled.section`
   padding: 3rem 0;
 `;
 
-const Teaching = () => (
-  <div>
-    <Helmet title="Teaching" />
-    <Intro>
-      <Container>
-        <Columns>
-          <VerticallyAlignedColumn>
-            <Slide left cascade>
-              <Heading size={2}>
-                Over 300 people have taught me how to code better.
-              </Heading>
-            </Slide>
-          </VerticallyAlignedColumn>
-          <VerticallyAlignedColumn>
-            <Slide right cascade>
-              <div>
-                <p>
-                  I began teaching people to code at General Assembly London in
-                  2014 as a teaching assistant. After learning the ropes, I
-                  began teaching my own classes as a Lead Instructor shortly
-                  after, eventually graduating to 'Head of Curriculum' in London
-                  in 2016.
-                </p>
-                <br />
-                <p>
-                  I <Heart icon="heart" /> helping people to learn new skills
-                  and am always amazed at how discovering a new skill always
-                  seems to bring the most out of people.
-                </p>
-              </div>
-            </Slide>
-          </VerticallyAlignedColumn>
-        </Columns>
-      </Container>
-    </Intro>
-    <Skills data={skills} col={4} />
-    <StudentRecommendations>
-      <Recommendations heading="Recommendations" data={students} col={2} />
-    </StudentRecommendations>
-  </div>
-);
+class Teaching extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet title="Teaching" />
+        <Intro>
+          <Container>
+            <Columns>
+              <VerticallyAlignedColumn>
+                <Slide left cascade>
+                  <Heading size={2}>
+                    Over 300 people have taught me how to code better.
+                  </Heading>
+                </Slide>
+              </VerticallyAlignedColumn>
+              <VerticallyAlignedColumn>
+                <Slide right cascade>
+                  <div>
+                    <p>
+                      I began teaching people to code at General Assembly London
+                      in 2014 as a teaching assistant. After learning the ropes,
+                      I began teaching my own classes as a Lead Instructor
+                      shortly after, eventually graduating to 'Head of
+                      Curriculum' in London in 2016.
+                    </p>
+                    <br />
+                    <p>
+                      I <Heart icon="heart" /> helping people to learn new
+                      skills and am always amazed at how discovering a new skill
+                      always seems to bring the most out of people.
+                    </p>
+                  </div>
+                </Slide>
+              </VerticallyAlignedColumn>
+            </Columns>
+          </Container>
+        </Intro>
+        <Skills data={skills} col={4} />
+        <StudentRecommendations>
+          <Recommendations
+            heading="What students say"
+            data={students}
+            col={1}
+          />
+        </StudentRecommendations>
+      </div>
+    );
+  }
+}
 
 export { Teaching };

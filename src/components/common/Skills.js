@@ -2,18 +2,24 @@ import styled from 'styled-components';
 import React from 'react';
 import { Container } from 'react-bulma-components';
 import { Heading } from '../common';
-import { black } from '../../data';
+import { black, white } from '../../data';
 import { Fade } from 'react-reveal';
 
 const SkillsSection = styled.section`
-  background: ${black};
+  background: ${white};
+  color: ${black};
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   .container {
     text-align: center;
-
+    h3 {
+      color: ${black};
+    }
+    p {
+      margin: 0 0 1rem;
+    }
     div {
       display: flex;
       flex-flow: row wrap;

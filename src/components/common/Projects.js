@@ -28,7 +28,7 @@ const Project = styled(Columns.Column)`
   }
   .card {
     box-shadow: none;
-    outline: 1px solid ${black};
+    outline: 2px solid ${black};
     .card-image {
       max-height: 320px;
       padding: 0;

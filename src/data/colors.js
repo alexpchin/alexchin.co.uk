@@ -10,3 +10,4 @@ export const yellow = '#ffff00';
 export const lightYellow = '#ffffd0';
 export const lightPink = '#d7d0ff';
 export const lightGrey = '#f7f7f7';
+export const green = '#16ff1d';

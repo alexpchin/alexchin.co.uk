@@ -6,7 +6,25 @@ const Navbar = styled(BulmaNavbar)`
   background: ${transparent};
   &.is-active {
     background: ${black};
-    height: 100%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    width: 50vw;
+  }
+  .navbar-menu {
+    &.is-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 1.5rem;
+
+      .navbar-start,
+      .navbar-end {
+        width: 100%;
+        justify-content: center !important;
+      }
+    }
   }
 `;
 

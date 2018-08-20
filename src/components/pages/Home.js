@@ -2,9 +2,18 @@ import styled from 'styled-components';
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Heading, Recommendations, Projects, Heart } from '../common';
-import { recommendations, projects } from '../../data';
+import {
+  recommendations,
+  projects,
+  lightYellow,
+  white,
+  blue,
+  lightGrey,
+  black,
+  red,
+  green,
+} from '../../data';
 import { Slide } from 'react-reveal';
-import { white, blue, lightGrey, purpleBlue, black, red } from '../../data';
 import img from '../../images/backgrounds/smiling.png';
 
 const Intro = styled.section`
@@ -14,28 +23,24 @@ const Intro = styled.section`
   height: 100vh;
 `;
 
-const IntroInner = styled.div`
+const Slogan = styled.div`
   background: ${black};
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 2;
-  position: relative; // IMPORTANT
-`;
+  h1 {
+    display: inline-block;
+    margin: 1rem 0;
+  }
+  h2 {
+    color: ${lightYellow};
+  }
 
-const MainHeader = Heading.extend`
-  background-image: linear-gradient(
-    to right,
-    ${purpleBlue} 0%,
-    ${purpleBlue} 100%
-  );
-  background-position: 0 0.84em;
-  background-repeat: repeat-x;
-  background-size: 1px 10px;
-  display: inline-block;
-  margin: 1rem 0;
+  @media (max-width: 1087px) {
+    padding: 0 3rem;
+  }
 `;
 
 const WorkRecommendations = styled.section`
@@ -47,7 +52,7 @@ const WorkRecommendations = styled.section`
   h3,
   .card {
     color: ${black} !important;
-    outline-color: ${black};
+    outline-color: ${green};
   }
 `;
 
@@ -66,15 +71,13 @@ class Home extends Component {
 
   createParticles() {
     const ParticleSlider = window.ParticleSlider;
-    var ps = new ParticleSlider({
+    new ParticleSlider({
       ptlGap: 1,
       mouseForce: 100,
       // monochrome: true,
       color: red,
       ptlSize: 2,
     });
-    var ptl = new ps.Particle(ps);
-    ptl.ttl = 20;
   }
 
   render() {
@@ -89,20 +92,24 @@ class Home extends Component {
             <canvas className="draw" />
           </Slider>
         </Intro>
-        <IntroInner>
+        <Slogan>
           <div>
             <Slide bottom cascade>
               <p>Hola,</p>
-              <MainHeader size={1}>
-                "I <Heart icon="heart" />
-                making things"
-              </MainHeader>
-              <Heading size={3} renderAs="h2">
-                Me ← Digital entrepreneur &amp; teacher.
-              </Heading>
+              <Slide left>
+                <Heading size={1}>
+                  "I <Heart icon="heart" />
+                  making things"
+                </Heading>
+              </Slide>
+              <Slide right>
+                <Heading size={3} renderAs="h2">
+                  Me ← Digital entrepreneur &amp; teacher.
+                </Heading>
+              </Slide>
             </Slide>
           </div>
-        </IntroInner>
+        </Slogan>
         <Projects data={projects} />
         <WorkRecommendations>
           <Recommendations

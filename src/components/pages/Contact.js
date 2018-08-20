@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Heading, VerticallyAlignedColumn } from '../common';
 import { Container, Columns } from 'react-bulma-components';
@@ -35,63 +35,67 @@ const Textarea = styled.textarea`
   box-shadow: none;
 `;
 
-const Contact = () => (
-  <div>
-    <Helmet title="Contact" />
-    <Intro>
-      <Container>
-        <Zoom bottom>
-          <Columns>
-            <VerticallyAlignedColumn>
-              <Heading size={2}>
-                Go crazy,
-                <br />
-                Say hi!
-              </Heading>
-            </VerticallyAlignedColumn>
-            <VerticallyAlignedColumn>
-              <ContactDetails>
-                <form
-                  action="https://formspree.io/alex@alexchin.co.uk"
-                  method="POST"
-                >
-                  <div className="field">
-                    <label className="label">What is your name?</label>
-                    <div className="control">
-                      <Input className="input" type="text" name="name" />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <label className="label">What is your email?</label>
-                    <div className="control">
-                      <Input className="input" type="email" name="email" />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <label className="label">Your message</label>
-                    <div className="control">
-                      <Textarea
-                        className="textarea"
-                        placeholder="e.g. Hello world"
-                        name="message"
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <button className="button is-link is-pulled-right has-background-black">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </ContactDetails>
-            </VerticallyAlignedColumn>
-          </Columns>
-        </Zoom>
-      </Container>
-    </Intro>
-  </div>
-);
+class Contact extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet title="Contact" />
+        <Intro>
+          <Zoom bottom>
+            <Container>
+              <Columns>
+                <VerticallyAlignedColumn>
+                  <Heading size={2}>
+                    Go crazy &amp;
+                    <br />
+                    say hi!
+                  </Heading>
+                </VerticallyAlignedColumn>
+                <VerticallyAlignedColumn>
+                  <ContactDetails>
+                    <form
+                      action="https://formspree.io/alex@alexchin.co.uk"
+                      method="POST"
+                    >
+                      <div className="field">
+                        <label className="label">What is your name?</label>
+                        <div className="control">
+                          <Input className="input" type="text" name="name" />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <label className="label">What is your email?</label>
+                        <div className="control">
+                          <Input className="input" type="email" name="email" />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <label className="label">Your message</label>
+                        <div className="control">
+                          <Textarea
+                            className="textarea"
+                            placeholder="e.g. Hello world"
+                            name="message"
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <button className="button is-link is-pulled-right has-background-black">
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </ContactDetails>
+                </VerticallyAlignedColumn>
+              </Columns>
+            </Container>
+          </Zoom>
+        </Intro>
+      </div>
+    );
+  }
+}
 
 export { Contact };

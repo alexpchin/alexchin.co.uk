@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Header, Main } from './components/base';
 import { Home, Teaching, About, Contact, NoMatch } from './components/pages';
+import { socials } from './data';
 
 // Font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -11,10 +12,17 @@ import {
   faFacebookSquare,
   faTwitterSquare,
   faGithubSquare,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
 // Add the icons you need in the project
-library.add(faFacebookSquare, faTwitterSquare, faGithubSquare, faHeart);
+library.add(
+  faFacebookSquare,
+  faTwitterSquare,
+  faGithubSquare,
+  faInstagram,
+  faHeart
+);
 
 export const routes = [
   {
@@ -37,21 +45,6 @@ export const routes = [
     title: 'Contact',
     path: '/contact',
     component: Contact,
-  },
-];
-
-export const socials = [
-  {
-    icon: 'facebook-square',
-    path: 'https://www.facebook.com/alexpchin',
-  },
-  {
-    icon: 'twitter-square',
-    path: 'https://www.twitter.com/alexpchin',
-  },
-  {
-    icon: 'github-square',
-    path: 'https://www.github.com/alexpchin',
   },
 ];
 
