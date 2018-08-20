@@ -22,6 +22,13 @@ const Project = styled(Columns.Column)`
   color: ${black};
   p {
     color: ${black};
+    &.title {
+      margin-bottom: 0.25rem;
+    }
+    &.subtitle {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
   }
   time {
     color: ${black};

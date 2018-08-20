@@ -7,7 +7,7 @@ import womapp from '../images/projects/womapp.png';
 export const projects = [
   {
     title: 'Pad',
-    description: '',
+    description: 'The club for renters.',
     image: pad,
     role: 'Co-Founder & CTO',
   },
@@ -19,25 +19,25 @@ export const projects = [
   // },
   {
     title: 'LearnCodeAbroad',
-    description: '',
+    description: 'Code in paradise.',
     image: learnCodeAbroad,
     role: 'Founder & CEO',
   },
   {
-    title: 'Velocity Capital Advisors',
-    description: '',
+    title: 'VCAL',
+    description: 'Funding startups.',
     image: velocity,
     role: 'Technology Advisor',
   },
   {
     title: 'Microwave Media',
-    description: '',
+    description: 'A boutique agency.',
     image: microwave,
     role: 'Co-Founder',
   },
   {
     title: 'womAPP',
-    description: '',
+    description: 'Brand advocacy platform.',
     image: womapp,
     role: 'Co-Founder',
   },
