@@ -23,7 +23,7 @@ const Project = styled(Columns.Column)`
   p {
     color: ${black};
     &.title {
-      margin-bottom: 0.25rem;
+      margin-bottom: 1.2em;
     }
     &.subtitle {
       margin-top: 0;
