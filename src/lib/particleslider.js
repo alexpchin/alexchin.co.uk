@@ -1,4 +1,6 @@
-function ParticleSlider(a) {
+/* eslint-disable */
+let i;
+export default function ParticleSlider(a) {
   var b = this;
   (b.sliderId = 'particle-slider'),
     (b.color = '#fff'),
@@ -362,7 +364,8 @@ var psParticle = function(a) {
             (c[d + 3] = i[3]);
       j = j.next;
     }
-    (b.data = c), a.ctx.putImageData(b, 0, 0);
+    // (b.data = c),
+    a.ctx.putImageData(b, 0, 0);
   }),
   (ParticleSlider.prototype.getPixelFromImageData = function(a, b, c) {
     var d = this,

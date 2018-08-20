@@ -16,6 +16,8 @@ import {
 import { Slide } from 'react-reveal';
 import img from '../../images/backgrounds/smiling.png';
 
+import ParticleSlider from '../../lib/particleslider';
+
 const Intro = styled.section`
   color: ${white};
   background: ${blue};
@@ -69,12 +71,18 @@ class Home extends Component {
     this.createParticles();
   }
 
+  componentWillUnmount() {
+    // This is due to an issue caused by the timeouts used within the ParticleSlider
+    var id = window.setTimeout(function() {}, 0);
+    while (id--) {
+      window.clearTimeout(id);
+    }
+  }
+
   createParticles() {
-    const ParticleSlider = window.ParticleSlider;
     new ParticleSlider({
       ptlGap: 1,
       mouseForce: 100,
-      // monochrome: true,
       color: red,
       ptlSize: 2,
     });

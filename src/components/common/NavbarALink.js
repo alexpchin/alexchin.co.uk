@@ -3,6 +3,7 @@ import { white, transparent } from '../../data';
 
 const NavbarALink = styled.a`
   color: ${white};
+  font-size: 1.5rem;
   &.active {
     text-decoration: line-through;
   }

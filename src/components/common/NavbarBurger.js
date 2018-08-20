@@ -4,6 +4,9 @@ import { white } from '../../data';
 
 const NavbarBurger = styled(Navbar.Burger)`
   color: ${white};
+  span {
+    height: 2px;
+  }
 `;
 
 export { NavbarBurger };
