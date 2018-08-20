@@ -30,14 +30,14 @@ export const recommendations = [
     quote:
       'Alex is extremely driven, highly insightful, and passionate about his work. Consistently ahead of the curve, he is a pleasure to work with!',
     image: dom,
-    date: '.NET Consultant of 17 years',
+    date: 'Label Manager Anjunadeep',
   },
   {
     name: 'Adam Jackson',
     quote:
       'Worked with Alex to provide consultancy on a web venture. Alex was easy to work with, he had a good grasp on what he wanted but was always willing to consider other points I raised. Pleasure to do business with.',
     image: adam,
-    date: '25 March 2012',
+    date: '.NET Consultant of 17 years',
   },
   {
     name: 'Oli Woodley',
