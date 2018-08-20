@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Header, Main } from './components/base';
+import { Header, Main, ScrollToTop } from './components/base';
 import { Home, Teaching, About, Contact, NoMatch } from './components/pages';
 import { socials } from './data';
 
@@ -63,10 +63,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Site>
-          <Header routes={routes} socials={socials} state={this.state} />
-          <Main routes={routes} NoMatch={NoMatch} />
-        </Site>
+        <ScrollToTop>
+          <Site>
+            <Header routes={routes} socials={socials} state={this.state} />
+            <Main routes={routes} NoMatch={NoMatch} />
+          </Site>
+        </ScrollToTop>
       </Router>
     );
   }
