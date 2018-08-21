@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Container } from 'react-bulma-components';
 import { white, blue } from '../../data';
 import img from '../../images/backgrounds/dancing-tomato.gif';
 
-const StyledNoMatch = styled(Container)`
+const StyledNoMatch = styled.section`
   background: url(${img}) no-repeat;
-  background: ${blue};
+  background-color: ${blue};
   height: 100vh;
   display: flex;
   justify-content: center;
