@@ -1,3 +1,4 @@
+import iynk from '../images/projects/iynk.png';
 import pad from '../images/projects/pad.png';
 import learnCodeAbroad from '../images/projects/learncodeabroad.jpg';
 import velocity from '../images/projects/velocity.png';
@@ -6,17 +7,17 @@ import womapp from '../images/projects/womapp.png';
 
 export const projects = [
   {
+    title: 'IYNK',
+    description: 'Find your next tattoo',
+    image: iynk,
+    role: 'Co-Founder & CTO',
+  },
+  {
     title: 'Pad',
     description: 'The club for renters.',
     image: pad,
     role: 'Co-Founder & CTO',
   },
-  // {
-  //   title: 'Inyk',
-  //   description: '',
-  //   image: '',
-  //   role: 'Advisor',
-  // },
   {
     title: 'LearnCodeAbroad',
     description: 'Code in paradise.',
