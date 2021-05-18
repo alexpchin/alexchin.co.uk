@@ -19,7 +19,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.2.0",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/react-fontawesome": "^0.1.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bulma": "^0.7.1",
     "eslint-plugin-prettier": "^2.6.2",
     "husky": "^0.14.3",
