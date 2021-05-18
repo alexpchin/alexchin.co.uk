@@ -1,5 +1,25 @@
 # Alexchin.co.uk
 
+To run:
+
+```sh
+yarn start
+```
+
+To deploy to staging (http://staging.alexchin.co.uk/)
+
+```
+git push heroku-staging master
+```
+
+To deploy to production (http://www.alexchin.co.uk/)
+
+```
+git push heroku-production master
+```
+
+### Notes
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Prettier formatting similar to:
