@@ -1,7 +1,7 @@
 export interface Project {
   title: string
   description: string
-  image: string
+  image: string | string[]
   role: string
 }
 

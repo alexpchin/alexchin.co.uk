@@ -1,22 +1,22 @@
 import type { Project } from '@/types'
 import iynk from '@/assets/images/projects/iynk.png'
-import pad from '@/assets/images/projects/pad.png'
 import learnCodeAbroad from '@/assets/images/projects/learncodeabroad.jpg'
 import velocity from '@/assets/images/projects/velocity.png'
 import microwave from '@/assets/images/projects/microwave.png'
 import womapp from '@/assets/images/projects/womapp.png'
+import pad from '@/assets/images/projects/pad/pad.png'
 
 export const projects: Project[] = [
   {
     title: 'IYNK',
-    description: 'Find your next tattoo',
+    description: 'Find your next tattoo.',
     image: iynk,
     role: 'Co-Founder & CTO',
   },
   {
     title: 'Pad',
-    description: 'The club for renters.',
-    image: pad,
+    description: 'Rent with no deposit.',
+    image: [pad],
     role: 'Co-Founder & CTO',
   },
   {
@@ -33,7 +33,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Microwave Media',
-    description: 'A boutique agency.',
+    description: 'A boutique digital agency.',
     image: microwave,
     role: 'Co-Founder',
   },

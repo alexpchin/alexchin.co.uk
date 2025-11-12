@@ -4,6 +4,7 @@ import { projects, recommendations, red } from '@/data'
 import smilingImg from '@/assets/images/backgrounds/smiling.png'
 // @ts-expect-error - particleslider.js is not a typescript file
 import ParticleSlider from '@/lib/particleslider.js'
+import { ImageCarousel } from '@/components/base/ImageCarousel'
 
 export function Home() {
   useEffect(() => {
@@ -74,11 +75,15 @@ export function Home() {
               >
                 <div className="bg-white rounded-none overflow-hidden shadow-none border border-dark">
                   <div className="max-h-80 overflow-hidden bg-dark border-b border-dark">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
+                    {Array.isArray(project.image) ? (
+                      <ImageCarousel images={project.image} alt={project.title} />
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-5 text-dark">{project.title}</h3>
