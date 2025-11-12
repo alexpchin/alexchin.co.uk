@@ -76,7 +76,7 @@ export function Teaching() {
           className="container mx-auto text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark">Skills</h2>
-          <p className="text-dark mb-8">My technology toolbox.</p>
+          <p className="text-dark mb-8">Some tools I've worked with:</p>
           <div className="flex flex-wrap justify-center gap-2">
             {skills.map((skill, index) => (
               <motion.i
