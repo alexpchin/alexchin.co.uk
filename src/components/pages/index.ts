@@ -1,0 +1,5 @@
+export * from './Home'
+export * from './Teaching'
+export * from './About'
+export * from './Contact'
+export * from './NoMatch'

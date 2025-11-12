@@ -1,37 +1,104 @@
-# Alexchin.co.uk
+# alexchin.co.uk
 
-To run:
+Modern TypeScript portfolio website built with Vite, React, and Tailwind CSS.
+
+## 🚀 Quick Start
+
+### Install Dependencies
 
 ```sh
-yarn start
+npm install
 ```
 
-To deploy to staging (http://staging.alexchin.co.uk/)
+### Development
 
-```
-git push heroku-staging master
-```
-
-To deploy to production (http://www.alexchin.co.uk/)
-
-```
-git push heroku-production master
+```sh
+npm run dev
 ```
 
-### Notes
+The site will be available at `http://localhost:5173`
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+### Build for Production
 
-Prettier formatting similar to:
-https://medium.com/technical-credit/using-prettier-with-vs-code-and-create-react-app-67c2449b9d08
+```sh
+npm run build
+```
 
-Influences taken from:
-https://medium.com/superhighfives/an-almost-static-stack-6df0a2791319
+### Preview Production Build
 
-Heroku buildpack added to deploy production build: https://github.com/mars/create-react-app-buildpack.git
+```sh
+npm run preview
+```
 
-Static version of the site generated using react-snapshot.
+## 📦 Tech Stack
 
-Sitemap building with react-snapshot-sitemap.
+- **Framework**: React 18
+- **Build Tool**: Vite 5
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Routing**: React Router v6
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Deployment**: Vercel
 
-Ideas from: http://animate.mhaagens.me/idontexist
+## 🎨 Features
+
+- ⚡️ Lightning-fast development with Vite HMR
+- 📱 Fully responsive design
+- 🎭 Smooth animations with Framer Motion
+- 🎯 TypeScript for type safety
+- 🎨 Modern UI with Tailwind CSS
+- 🔍 SEO-friendly
+- 📦 Optimized production builds
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/          # Images, fonts, and static assets
+├── components/      # React components
+│   ├── base/       # Layout components (Header, Main, etc.)
+│   ├── common/     # Reusable components
+│   └── pages/      # Page components
+├── data/           # Static data and content
+├── styles/         # Global styles and Tailwind config
+├── types/          # TypeScript type definitions
+└── main.tsx        # Application entry point
+```
+
+## 🚢 Deployment
+
+This site is configured for deployment on Vercel:
+
+```sh
+# Deploy to production
+vercel --prod
+```
+
+The `vercel.json` configuration handles client-side routing.
+
+## 📝 Legacy Code
+
+The original Create React App version has been moved to the `legacy/` directory for reference.
+
+## 🔧 Development
+
+### Code Formatting
+
+```sh
+npm run format
+```
+
+### Linting
+
+```sh
+npm run lint
+```
+
+## 📄 License
+
+MIT
+
+---
+
+Made with ❤️ in London
