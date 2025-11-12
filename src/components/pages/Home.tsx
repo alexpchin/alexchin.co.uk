@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { projects, recommendations, red } from '@/data'
 import smilingImg from '@/assets/images/backgrounds/smiling.png'
-// @ts-ignore
+// @ts-expect-error - particleslider.js is not a typescript file
 import ParticleSlider from '@/lib/particleslider.js'
 
 export function Home() {
@@ -47,11 +47,9 @@ export function Home() {
           className="text-center"
         >
           <p className="text-white text-2xl mb-4">Hi,</p>
-          <h2 className="text-white text-5xl md:text-7xl font-bold mb-6">
-            I build things
-          </h2>
+          <h2 className="text-white text-5xl md:text-7xl font-bold mb-6">I build things</h2>
           <h3 className="text-secondary text-3xl md:text-4xl">
-            Me ← Digital entrepreneur & teacher.
+            Me === Digital entrepreneur & teacher.
           </h3>
         </motion.div>
       </section>
@@ -83,9 +81,7 @@ export function Home() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-5 text-dark">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-xl font-bold mb-5 text-dark">{project.title}</h3>
                     <p className="text-sm text-dark mb-2">
                       <time>{project.role}</time>
                     </p>
@@ -101,9 +97,7 @@ export function Home() {
       {/* Recommendations Section */}
       <section className="min-h-screen bg-light py-20 px-4">
         <div className="container mx-auto" style={{ maxWidth: '80vw' }}>
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-dark">
-            Recommendations
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-dark">Recommendations</h2>
           <div className="space-y-6">
             {recommendations.map((rec, index) => (
               <motion.div

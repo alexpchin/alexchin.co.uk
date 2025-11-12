@@ -30,7 +30,7 @@ function App() {
     <Router>
       <ScrollToTop>
         <Header routes={routes} socials={socials} />
-        <Main routes={routes} />
+        <Main />
       </ScrollToTop>
     </Router>
   )

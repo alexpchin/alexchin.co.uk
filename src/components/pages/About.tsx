@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { orange } from '@/data'
 
@@ -8,18 +9,36 @@ export function About() {
     const today = new Date()
     let age = today.getFullYear() - birthDate.getFullYear()
     const monthDiff = today.getMonth() - birthDate.getMonth()
-    
+
     // Adjust if birthday hasn't occurred yet this year
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--
     }
-    
+
     return age
   }
 
   const age = calculateAge()
-  const text = `Hello, my name is Alex Chin. I'm ${age} years old and I'm a tech-guy who lives in Peckham. `
-  
+  const fullText = `Hello, my name is Alex Chin. I'm ${age} years old and I'm a tech-guy who lives in Peckham. `
+
+  const [displayedText, setDisplayedText] = useState('')
+  const [showHashtag, setShowHashtag] = useState(false)
+
+  useEffect(() => {
+    let currentIndex = 0
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setDisplayedText(fullText.slice(0, currentIndex))
+        currentIndex++
+      } else {
+        clearInterval(typingInterval)
+        setTimeout(() => setShowHashtag(true), 200)
+      }
+    }, 50) // 50ms per character
+
+    return () => clearInterval(typingInterval)
+  }, [fullText])
+
   return (
     <div>
       {/* Hero Section with Typing Effect */}
@@ -34,8 +53,15 @@ export function About() {
             transition={{ duration: 0.8 }}
           >
             <p className="text-white leading-relaxed">
-              {text}
-              <span className="bg-dark px-4 inline-block">#original</span>
+              {displayedText}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: showHashtag ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-dark px-4 inline-block"
+              >
+                #original
+              </motion.span>
             </p>
           </motion.div>
         </div>

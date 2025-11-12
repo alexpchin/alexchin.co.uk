@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Github, Instagram, Menu, X } from 'lucide-react'
+import { Github, Instagram, Linkedin, Menu, X } from 'lucide-react'
 import type { Route, Social } from '@/types'
 
 interface HeaderProps {
@@ -10,6 +10,7 @@ interface HeaderProps {
 
 const iconMap = {
   'github-square': Github,
+  linkedin: Linkedin,
   instagram: Instagram,
 }
 
@@ -24,9 +25,7 @@ export function Header({ routes, socials }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav
         className={`transition-all duration-300 ${
-          isOpen
-            ? 'bg-dark h-screen w-screen fixed'
-            : 'bg-transparent backdrop-blur-sm'
+          isOpen ? 'bg-dark h-screen w-screen fixed' : 'bg-transparent backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4">

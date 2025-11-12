@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
 import { skills, students } from '@/data'
 import teachingBg from '@/assets/images/backgrounds/teaching.gif'
 
 export function Teaching() {
+  const [visibleCount, setVisibleCount] = useState(10)
+  const showMore = () => setVisibleCount((prev) => prev + 10)
+  const visibleStudents = students.slice(0, visibleCount)
+
   return (
     <div>
       {/* Hero Section with Background */}
@@ -42,13 +47,13 @@ export function Teaching() {
                 >
                   General Assembly
                 </a>{' '}
-                London in 2014 as a teaching assistant. After learning the ropes, I began
-                teaching my own classes as a Lead Instructor shortly after, eventually
-                became Head of Curriculum in in 2016.
+                London in 2014 as a teaching assistant. After learning the ropes, I began teaching
+                my own classes as a Lead Instructor shortly after, eventually became Head of
+                Curriculum in in 2016.
               </p>
               <p>
-                I <Heart className="text-danger fill-current inline-block align-middle" size={20} /> helping
-                people to learn new skills and am always amazed at how discovering a new
+                I <Heart className="text-danger fill-current inline-block align-middle" size={20} />{' '}
+                helping people to learn new skills and am always amazed at how discovering a new
                 skill always seems to bring the most out of people.
               </p>
             </motion.div>
@@ -84,16 +89,14 @@ export function Teaching() {
       {/* Student Recommendations Section */}
       <section className="min-h-screen bg-primary py-20 px-4">
         <div className="container mx-auto" style={{ maxWidth: '80vw' }}>
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-            What students say
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">What students say</h2>
           <div className="space-y-6">
-            {students.map((student, index) => (
+            {visibleStudents.map((student, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{ duration: 0.5, delay: Math.min(index, 5) * 0.05 }}
                 className="bg-white rounded-lg p-6 shadow-md border border-gray-200"
               >
                 <div className="flex items-start mb-4">
@@ -101,6 +104,7 @@ export function Teaching() {
                     src={student.image}
                     alt={student.name}
                     className="w-16 h-16 rounded-full object-cover mr-4 flex-shrink-0"
+                    loading="lazy"
                   />
                   <div>
                     <h3 className="text-lg font-bold text-dark">{student.name}</h3>
@@ -111,6 +115,17 @@ export function Teaching() {
               </motion.div>
             ))}
           </div>
+
+          {visibleCount < students.length && (
+            <div className="text-center mt-12">
+              <button
+                onClick={showMore}
+                className="bg-white text-primary px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              >
+                Load More ({students.length - visibleCount} remaining)
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </div>

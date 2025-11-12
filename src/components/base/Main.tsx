@@ -4,13 +4,8 @@ import { Teaching } from '../pages/Teaching'
 import { About } from '../pages/About'
 import { Contact } from '../pages/Contact'
 import { NoMatch } from '../pages/NoMatch'
-import type { Route as RouteType } from '@/types'
 
-interface MainProps {
-  routes: RouteType[]
-}
-
-export function Main({ routes }: MainProps) {
+export function Main() {
   return (
     <main>
       <Routes>
