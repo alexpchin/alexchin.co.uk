@@ -56,9 +56,9 @@ export function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                Go crazy &amp;
+                Reach out &amp;
                 <br />
-                say hi!
+                say hello!
               </h1>
             </div>
             <div className="bg-white rounded-lg p-8 shadow-lg">
