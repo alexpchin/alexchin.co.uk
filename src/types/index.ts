@@ -16,7 +16,6 @@ export interface Student {
   name: string
   quote: string
   image: string
-  date: string
 }
 
 export interface Social {

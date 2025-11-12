@@ -105,17 +105,14 @@ export function Teaching() {
                 transition={{ duration: 0.5, delay: Math.min(index, 5) * 0.05 }}
                 className="bg-white rounded-lg p-6 shadow-md border border-gray-200"
               >
-                <div className="flex items-start mb-4">
+                <div className="flex items-center mb-4">
                   <img
                     src={student.image}
                     alt={student.name}
                     className="w-16 h-16 rounded-full object-cover mr-4 flex-shrink-0"
                     loading="lazy"
                   />
-                  <div>
-                    <h3 className="text-lg font-bold text-dark">{student.name}</h3>
-                    <p className="text-sm text-gray-600">{student.date}</p>
-                  </div>
+                  <h3 className="text-lg font-bold text-dark">{student.name}</h3>
                 </div>
                 <p className="text-dark leading-relaxed">{student.quote}</p>
               </motion.div>
