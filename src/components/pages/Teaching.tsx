@@ -44,7 +44,7 @@ export function Teaching() {
                 </a>{' '}
                 London in 2014 as a teaching assistant. After learning the ropes, I began
                 teaching my own classes as a Lead Instructor shortly after, eventually
-                graduating to 'Head of Curriculum' in London in 2016.
+                became Head of Curriculum in in 2016.
               </p>
               <p>
                 I <Heart className="text-danger fill-current inline-block align-middle" size={20} /> helping
