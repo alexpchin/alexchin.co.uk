@@ -47,14 +47,20 @@ export function Teaching() {
                 >
                   General Assembly
                 </a>{' '}
-                London in 2014 as a teaching assistant. After learning the ropes, I began teaching
-                my own classes as a Lead Instructor shortly after, eventually became Head of
-                Curriculum in in 2016.
+                in London in 2014. After teaching classes as a Lead Instructor, I became Head of
+                Curriculum in 2016. Finally travelling to the US to talk about the importance of
+                "teaching a class and not a curriculum".
+              </p>
+              <p className="mb-4">
+                Since then, I've been fortunate to be involved in multiple seven-figure raises and
+                successful exits, learning a huge amount from both the wins and the mistakes along
+                the way. I love sharing those lessons with others and helping people navigate their
+                own journeys with a bit more clarity and confidence.
               </p>
               <p>
                 I <Heart className="text-danger fill-current inline-block align-middle" size={20} />{' '}
-                helping people to learn new skills and am always amazed at how discovering a new
-                skill always seems to bring the most out of people.
+                helping people learn new skills, and I'm always amazed at how discovering something
+                new can bring out the very best in them.
               </p>
             </motion.div>
           </div>
